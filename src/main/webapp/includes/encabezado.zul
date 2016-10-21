@@ -1,0 +1,15 @@
+<div hflex="1" vflex="1" sclass="encabezado">
+	<hbox hflex="1" vflex="1" align="center">
+		<a href="index.zul">
+			<image src="imgs/logo_ecom_header.png" width="218px" />
+		</a>
+		<div width="650px">
+			<label value="Sistema Administrativo" sclass="encabezado-titulo" />
+		</div>
+		<hbox hflex="1" vflex="1" pack="end" align="end">
+			<label value="${sessionScope.userCredential.getEmpleado().toString()}" if="${not (sessionScope.userCredential==null)}" />
+			<label apply="com.ecom.safecom.controllers.LogoutController" value="Salir"
+				if="${not (sessionScope.userCredential==null)}" sclass="label_enlace" id="salir"/>
+		</hbox>
+	</hbox>
+</div>

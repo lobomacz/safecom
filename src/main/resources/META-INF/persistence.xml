@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+	<persistence-unit name="ecomapp" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.connection.username" value="ecomuser" />
+			<property name="hibernate.connection.password" value="#Ec0m2o!5." />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost/bd_ecom" />
+			<property name="hibernate.hbm2ddl.auto" value="none" />
+		</properties>
+	</persistence-unit>
+</persistence>

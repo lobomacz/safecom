@@ -1,0 +1,61 @@
+<window title="Clientes" border="normal" id="wclientes"
+	apply="com.ecom.safecom.controllers.NuevoClienteController"
+	width="400px">
+	<caption label="Nuevo Cliente" sclass="fn-caption"/>
+	<vbox>
+		<label value="" id="lblMensajeError" style="color:#FFB85C;" />
+		<hbox>
+			<vbox>
+				Nombre:
+				<textbox id="nombreCliente" placeholder="Nombre"
+					maxlength="45" />
+				Dirección:
+				<textbox id="direccionCliente" placeholder="Dirección"
+					maxlength="200" />
+			</vbox>
+			<vbox>
+				Identificación:
+				<textbox id="identificacionCliente" maxlength="16"
+					placeholder="000-000000-000XX" />
+				Contacto:
+				<textbox id="contactoCliente" maxlength="45"
+					placeholder="Contacto" />
+				Correo-e:
+				<textbox id="correoCliente" maxlength="45"
+					placeholder="correo@servidor.com" />
+			</vbox>
+		</hbox>
+		<hbox>
+			<vbox hflex="1">
+				<label value="Telefonos" />
+				<textbox id="txtTelefono" maxlength="9"
+					placeholder="0000-0000" />
+				<listbox id="lstTelefonos">
+					<listhead>
+						<listheader label="Telefono" sort="auto" />
+						<listheader label="Tipo" sort="auto" />
+					</listhead>
+					<template name="model">
+						<listitem>
+							<listcell label="${each.telefono }" />
+							<listcell label="${each.descripcion }" />
+						</listitem>
+					</template>
+				</listbox>
+			</vbox>
+			<vbox hflex="1">
+				<radiogroup id="rgrpTipo" orient="horizontal">
+					<radio value="casa" label="Casa" />
+					<radio label="Móvil" value="movil" />
+					<radio value="otro" label="Otro" />
+				</radiogroup>
+				<button id="btnAgregarTelefono" label="Agregar" />
+				<button id="btnRemoverTelefono" label="Remover" />
+			</vbox>
+		</hbox>
+		<hbox align="center" pack="center">
+			<button label="Cancelar" id="btnCancelar" />
+			<button label="OK" id="guardarCliente" />
+		</hbox>
+	</vbox>
+</window>

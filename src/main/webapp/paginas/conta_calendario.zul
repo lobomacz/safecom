@@ -1,0 +1,131 @@
+<?link href="/extilo.css" rel="stylesheet" type="text/css" ?>
+<window title="Contabilidad" border="normal"
+	apply="com.ecom.safecom.controllers.ContaCalendarioController"
+	vflex="1" hflex="1" id="winCalendario">
+	<caption src="imgs/48/calendar.png"
+		label="Calendario" sclass="fn-caption" />
+	<tabbox hflex="1" vflex="1" orient="top" id="tabsCalendario">
+	<toolbar id="tlbHerramientas">
+		<toolbarbutton label="" id="tlbtnImprimir"
+			image="imgs/16/gtk-print.png" tooltiptext="Imprimir" disabled="true" />
+		<toolbarbutton label="" id="tlbtnRecargar"
+			image="imgs/16/reload.png" tooltiptext="Recargar" />
+		<toolbarbutton label="" id="tlbtnGuardar"
+			image="imgs/16/gtk-save.png" tooltiptext="Guardar" disabled="true" />
+		<toolbarbutton label="" id="tlbtnEditar"
+			image="imgs/16/gtk-edit.png" tooltiptext="Editar" disabled="true" />
+		<toolbarbutton label="" id="tlbtnAgregar"
+			image="imgs/16/add.png" tooltiptext="Nuevo" />
+		<toolbarbutton label="" id="tlbtnEliminar"
+			image="imgs/16/gtk-remove.png" tooltiptext="Eliminar"
+			disabled="true" />
+	</toolbar>
+		<tabs>
+			<tab label="EJERCICIOS" />
+			<tab label="PERÍODOS" />
+		</tabs>
+		<tabpanels>
+			<tabpanel>
+				<vbox>
+					<hbox>
+						<vbox>
+							<label value="Ejercicio" />
+							<intbox id="intEjercicio" disabled="true"
+								constraint="no empty, no negative" />
+							<label value="Descripción" />
+							<textbox id="txtDescripcionEjercicio"
+								disabled="true" />
+							<checkbox id="chkEjercicioActivo"
+								label="Activo" />
+						</vbox>
+						<button label="Crear Períodos" onClick=""
+							id="btnCrearPeriodos" disabled="true" />
+					</hbox>
+					<splitter hflex="1" collapse="before" open="false" />
+					<vbox>
+						<hbox hflex="1" pack="end">
+							<button label="Ver Períodos" onClick=""
+								id="btnVerPeriodos" disabled="true" />
+						</hbox>
+						<listbox id="lstEjercicios" multiple="false">
+							<listhead>
+								<listheader label="Ejercicio"
+									sort="auto" width="6em" />
+								<listheader label="Descripción"
+									sort="auto" />
+							</listhead>
+							<template name="model">
+								<listitem>
+									<listcell
+										label="${each.id_ejercicio }" />
+									<listcell
+										label="${each.descripcion }" />
+								</listitem>
+							</template>
+						</listbox>
+					</vbox>
+				</vbox>
+			</tabpanel>
+			<tabpanel hflex="1" vflex="1">
+				<vbox hflex="1" vflex="1">
+					<hbox hflex="1" vflex="min">
+						<vbox>
+							<label value="Núm. Período" />
+							<intbox id="intNumeroPeriodo"
+								disabled="true" constraint="no empty, no negative" />
+							<label value="Nombre Período" />
+							<textbox id="txtNombrePeriodo"
+								disabled="true" />
+							<label value="Id Ejercicio" />
+							<combobox id="cmbIdEjercicio"
+								disabled="true">
+								<template name="model">
+									<comboitem
+										label="${each.id_ejercicio }" />
+								</template>
+							</combobox>
+						</vbox>
+						<vbox>
+							<label value="Fecha de Inicio" />
+							<datebox id="dtbFechaInicio"
+								disabled="true" />
+							<label value="Fecha Final" />
+							<datebox id="dtbFechaFinal" disabled="true" />
+							<checkbox id="chkPeriodoActivo"
+								checked="true" label="Activo" />
+							<checkbox label="Abierto" checked="false"
+								id="chkPeriodoAbierto" disabled="true" />
+						</vbox>
+					</hbox>
+					<splitter hflex="1" collapse="before" open="false" />
+					<box orient="vertical" hflex="1" vflex="1">
+						<listbox id="lstPeriodosContables" hflex="1"
+							vflex="1" style="overflow:auto;" multiple="false">
+							<listhead>
+								<listheader label="Numero" sort="auto"
+									hflex="1" sortDirection="ascending" />
+								<listheader label="Id" hflex="1" />
+								<listheader label="Nombre" hflex="3" />
+								<listheader label="Fecha Inicio"
+									hflex="2" />
+								<listheader label="Fecha Final"
+									hflex="2" />
+							</listhead>
+							<template name="model">
+								<listitem>
+									<listcell label="${each.numero }" />
+									<listcell label="${each.id }" />
+									<listcell label="${each.nombre }" />
+									<listcell
+										label="${each.fecha_inicio}" />
+									<listcell
+										label="${each.fecha_final }" />
+								</listitem>
+							</template>
+						</listbox>
+					</box>
+				</vbox>
+			</tabpanel>
+		</tabpanels>
+	</tabbox>
+</window>

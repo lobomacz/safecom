@@ -1,0 +1,46 @@
+<?link href="/estilo.css" type="text/css" rel="stylesheet"?>
+<zk>
+<window title="" border="normal" id="wCajaAbonos" hflex="1" vflex="1" apply="com.ecom.safecom.controllers.CajaAbonosController">
+<caption label="Abonos Sobre Ventas a Crédito"   sclass="fn-caption"/>
+<hbox hflex="1" vflex="1">
+<listbox id="lstVentas" hflex="1" vflex="1" style="overflow:auto">
+	<listhead>
+		<listheader label="Id Venta" sort="auto" />
+		<listheader label="Cliente" sort="auto" />
+		<listheader label="Monto C$"/>
+	</listhead>
+	<template name="model">
+	<listitem>
+		<listcell label="${each.id_venta }]" />
+		<listcell label="${each.cliente.nombre }" />
+		<listcell label="${each.Total }" />
+	</listitem>
+	</template>
+</listbox>
+<vbox hflex="1" vflex="1"> 
+<hbox>
+Id Venta:
+<label value="" id="lblIdVenta"/>
+</hbox>
+<hbox>
+Fecha de Venta:
+<label value="" id="lblFechaVenta"/>
+</hbox>
+<hbox>
+Cliente:
+<label value="" id="lblCliente"/>
+</hbox>
+<hbox>
+Monto del Pago C$:
+<decimalbox id="dcmbMonto" format="##,##0.00"/>
+</hbox>
+<hbox>
+<button label="Asiento" onClick="" id="btnAsiento"/>
+<button label="Guardar" onClick="" id="btnGuardar" disabled="true"/>
+<button label="Cancelar Venta" onClick="" id="btnCancelarVenta"/>
+<button label="Imprimir Recibo" onClick="" id="btnRecibo" disabled="true"/>
+</hbox>
+</vbox>
+</hbox>
+</window>
+</zk>

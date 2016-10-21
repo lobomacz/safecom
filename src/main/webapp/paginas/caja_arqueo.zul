@@ -1,0 +1,206 @@
+<?link href="/estilo.css" type="text/css" rel="stylesheet"?>
+<zk>
+	<window title="Arqueo de Caja" border="normal" hflex="1" vflex="1"
+		style="overflow:auto;" id="wArqueo"
+		apply="com.ecom.safecom.controllers.ArqueoController">
+		<caption label="Control de Caja" sclass="fn-caption" />
+		<vlayout style="overflow:auto;" hflex="1" vflex="1">
+			<hbox hflex="1">
+				<vbox>
+					<label value="Caja" />
+					<combobox id="cmbCaja">
+						<template name="model">
+							<comboitem label="${each.descripcion }" />
+						</template>
+					</combobox>
+				</vbox>
+				<vbox>
+					<label value="Fecha" />
+					<datebox id="dtbFecha" />
+				</vbox>
+				<vbox>
+					<label value="Empleado" />
+					<textbox id="txtEmpleado" readonly="true" />
+				</vbox>
+				<button label="Aceptar" id="btnAceptar" disabled="true" />
+				<button label="Validar" id="btnValidar" />
+				<button label="Asiento de Ajuste" id="btnAsiento"
+					disabled="true" />
+			</hbox>
+			<hbox hflex="1">
+				<panel border="normal" hflex="1">
+					<panelchildren>
+						<grid id="grdDetalleEfectivo">
+							<columns>
+								<column label="" />
+								<column label="Cantidad" />
+								<column label="Valor" />
+							</columns>
+							<rows>
+								<row>
+									<label value="C$ 500" />
+									<intbox id="intb500" value="0" />
+									<decimalbox readonly="true"
+										id="dcmb500" value="0" format="###,000.00" locale="en" />
+								</row>
+								<row>
+									<label value="C$ 200" />
+									<intbox id="intb200" value="0" />
+									<decimalbox readonly="true"
+										id="dcmb200" value="0" format="###,000.00" locale="en" />
+								</row>
+								<row>
+									<label value="C$ 100" />
+									<intbox id="intb100" value="0" />
+									<decimalbox readonly="true"
+										id="dcmb100" value="0" format="###,000.00" locale="en" />
+								</row>
+								<row>
+									<label value="C$ 50" />
+									<intbox id="intb50" value="0" />
+									<decimalbox readonly="true"
+										id="dcmb50" value="0" format="###,000.00" locale="en" />
+								</row>
+								<row>
+									<label value="C$ 20" />
+									<intbox id="intb20" value="0" />
+									<decimalbox readonly="true"
+										id="dcmb20" value="0" format="###,000.00" locale="en" />
+								</row>
+								<row>
+									<label value="C$ 10" />
+									<intbox id="intb10" value="0" />
+									<decimalbox readonly="true"
+										id="dcmb10" value="0" format="###,000.00" locale="en" />
+								</row>
+								<row>
+									<label value="C$ 5" />
+									<intbox id="intb5" value="0" />
+									<decimalbox readonly="true"
+										id="dcmb5" value="0" format="###,000.00" locale="en" />
+								</row>
+								<row>
+									<label value="C$ 1" />
+									<intbox id="intb1" value="0" />
+									<decimalbox readonly="true"
+										id="dcmb1" value="0" format="###,000.00" locale="en" />
+								</row>
+								<row>
+									<label value="C$ 0.50 centavos" />
+									<intbox id="intb050" value="0" />
+									<decimalbox readonly="true"
+										id="dcmb050" value="0" format="###,000.00" locale="en" />
+								</row>
+								<row>
+									<label value="C$ 0.25 centavos" />
+									<intbox id="intb025" value="0" />
+									<decimalbox readonly="true"
+										id="dcmb025" value="0" format="###,000.00" locale="en" />
+								</row>
+								<row>
+									<label value="C$ 0.10 centavos" />
+									<intbox id="intb010" value="0" />
+									<decimalbox readonly="true"
+										id="dcmb010" value="0" format="###,000.00" locale="en" />
+								</row>
+								<row>
+									<label value="C$ 0.5 centavos" />
+									<intbox id="intb005" value="0" />
+									<decimalbox readonly="true"
+										id="dcmb005" value="0" format="###,000.00" locale="en" />
+								</row>
+								<row>
+									<label value="C$ 0.01 centavo" />
+									<intbox id="intb001" value="0" />
+									<decimalbox readonly="true"
+										id="dcmb001" value="0" format="###,000.00" locale="en" />
+								</row>
+							</rows>
+						</grid>
+					</panelchildren>
+				</panel>
+				<vbox hflex="1">
+					<panel border="normal">
+						<panelchildren>
+							<grid>
+								<columns>
+									<column label="" />
+									<column label="Arqueo" />
+									<column label="Teórico" />
+									<column label="Diferencia" />
+								</columns>
+								<rows>
+									<row>
+										<label value="Efectivo" />
+										<decimalbox
+											id="dcmbEfectivoArqueo" format="###,000.00" value="0"
+											readonly="true" locale="en" />
+										<decimalbox
+											id="dcmbEfectivoTeorico" readonly="true" value="0"
+											format="###,000.00" locale="en" />
+										<decimalbox
+											id="dcmbEfectivoDiferencia" readonly="true" value="0"
+											format="###,000.00" locale="en" />
+									</row>
+									<row>
+										<label value="Cheques" />
+										<decimalbox
+											id="dcmbChequesArqueo" format="###,000.00" value="0"
+											locale="en" constraint="no empty, no negative" />
+										<decimalbox
+											id="dcmbChequesTeorico" readonly="true" format="###,000.00"
+											value="0" locale="en" />
+										<decimalbox
+											id="dcmbChequesDiferencia" readonly="true"
+											format="###,000.00" value="0" locale="en" />
+									</row>
+									<row>
+										<label value="Vouchers" />
+										<decimalbox
+											id="dcmbVouchersArqueo" format="###,000.00" value="0"
+											locale="en" constraint="no empty, no negative" />
+										<decimalbox
+											id="dcmbVouchersTeorico" readonly="true" format="###,000.00"
+											value="0" locale="en" />
+										<decimalbox
+											id="dcmbVouchersDiferencia" readonly="true"
+											format="###,000.00" value="0" locale="en" />
+									</row>
+								</rows>
+							</grid>
+						</panelchildren>
+					</panel>
+					<separator height="8px" width="80%" visible="true"
+						orient="horizontal" spacing="30px" bar="true" />
+					<panel border="normal">
+						<panelchildren>
+							<grid hflex="1">
+								<columns>
+									<column label="" />
+									<column label="" />
+									<column label="" />
+									<column label="" />
+								</columns>
+								<rows>
+									<row>
+										<label value="Total Arqueo" />
+										<decimalbox id="dcmbTotalArqueo"
+											readonly="true" format="###,000.00" value="0" locale="en" />
+										<decimalbox
+											id="dcmbTotalTeorico" readonly="true" format="###,000.00"
+											value="0" locale="en" />
+										<decimalbox
+											id="dcmbTotalDiferencia" readonly="true" format="###,000.00"
+											value="0" locale="en" />
+									</row>
+								</rows>
+							</grid>
+						</panelchildren>
+					</panel>
+					<separator height="8px" width="80%" visible="true"
+						orient="horizontal" spacing="30px" bar="true" />
+				</vbox>
+			</hbox>
+		</vlayout>
+	</window>
+</zk>

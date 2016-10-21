@@ -1,0 +1,41 @@
+<?link href="/estilo.css" type="text/css" rel="stylesheet" ?>
+<zk>
+	<window title="Proformas" border="normal"
+		apply="com.ecom.safecom.controllers.ProformasController">
+		<caption src="imgs/48/package_utilities.png" label="Control de Proformas"
+			height="48px" sclass="fn-caption" />
+		<toolbar id="tlbHerramientas">
+			<toolbarbutton label="" id="tlbtnImprimir"
+				image="imgs/16/gtk-print.png" tooltiptext="Imprimir"
+				disabled="true" />
+			<toolbarbutton label="" id="tlbtnRecargar"
+				image="imgs/16/reload.png" tooltiptext="Recargar" />
+			<toolbarbutton label="" id="tlbtnEditar"
+				image="imgs/16/gtk-edit.png" tooltiptext="Editar" disabled="true" />
+			<toolbarbutton label="" id="tlbtnAgregar"
+				image="imgs/16/add.png" tooltiptext="Nuevo" />
+			<toolbarbutton label="" id="tlbtnEliminar"
+				image="imgs/16/gtk-remove.png" tooltiptext="Eliminar"
+				disabled="true" />
+		</toolbar>
+		<listbox height="300px" style="overflow:auto;"
+			id="lstProformas">
+			<listhead>
+				<listheader label="No. Proforma" sort="auto" />
+				<listheader label="Fecha" sort="auto" />
+				<listheader label="Vendedor" sort="auto" />
+				<listheader label="Monto C$" sort="auto" />
+			</listhead>
+			<template name="model">
+				<listitem>
+					<listcell label="${each.id_venta }" />
+					<listcell label="${each.fecha_venta }" />
+					<listcell
+						label="${each.usuario.empleado.toString() }" />
+					<listcell label="${each.total }" />
+				</listitem>
+			</template>
+		</listbox>
+	</window>
+
+</zk>

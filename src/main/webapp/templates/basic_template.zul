@@ -1,0 +1,13 @@
+<zk>
+	<borderlayout hflex="1" vflex="1">
+		<north border="none" height="100px">
+			<include src="/includes/encabezado.zul" />
+		</north>
+		<center border="none" id="maininsert" autoscroll="true"
+			self="@insert(contenido)">
+		</center>
+		<south height="50px">
+			<include src="/includes/piedepagina.zul" />
+		</south>
+	</borderlayout>
+</zk>

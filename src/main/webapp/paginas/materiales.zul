@@ -1,0 +1,173 @@
+<?link href="/extilo.css" rel="stylesheet" type="text/css" ?>
+<window title="" border="normal" id="winMateriales" hflex="1"
+	apply="com.ecom.safecom.controllers.AlmacenController">
+	<caption src="imgs/48/almacen.png" label="Control de Almacen"
+		height="48px" sclass="fn-caption" />
+	<vlayout vflex="1" hflex="1">
+		<toolbar id="tlbHerramientas">
+			<toolbarbutton label="" id="tlbtnImprimir"
+				image="imgs/16/gtk-print.png" tooltiptext="Imprimir"
+				disabled="true" />
+			<toolbarbutton label="" id="tlbtnRecargar"
+				image="imgs/16/reload.png" tooltiptext="Recargar" />
+			<toolbarbutton label="" id="tlbtnGuardar"
+				image="imgs/16/gtk-save.png" tooltiptext="Guardar" disabled="true" />
+			<toolbarbutton label="" id="tlbtnEditar"
+				image="imgs/16/gtk-edit.png" tooltiptext="Editar" disabled="true" />
+			<toolbarbutton label="" id="tlbtnAgregar"
+				image="imgs/16/add.png" tooltiptext="Nuevo" />
+			<toolbarbutton label="" id="tlbtnEliminar"
+				image="imgs/16/gtk-remove.png" tooltiptext="Eliminar"
+				disabled="true" />
+		</toolbar>
+		<hbox>
+			<panel hflex="3" title="Datos de Almacen"
+				id="pnlDetalleAlmacen">
+				<panelchildren>
+					<hbox>
+						<label value="Id Almacen:" />
+						<intbox id="intbIdalmacen" maxlength="5"
+							disabled="true" width="100px" />
+					</hbox>
+					<hbox>
+						<label value="Cta. Contable:" />
+						<textbox id="txtCuenta_contable"
+							placeholder="Cuenta" disabled="true" />
+					</hbox>
+					<hbox>
+						<label value="Ubicación:" />
+						<textbox id="txtUbicacion" width="250px"
+							maxlength="45" placeholder="Ubicación" disabled="true" />
+					</hbox>
+				</panelchildren>
+			</panel>
+			<panel hflex="2" height="100" style="overflow:auto"
+				id="pnlListaAlmacenes">
+				<panelchildren>
+					<listbox id="lstAlmacenes">
+						<listhead>
+							<listheader label="Id" sort="auto"
+								width="30" />
+							<listheader label="Almacen" sort="auto" />
+							<listheader label="Cuenta" sort="auto" />
+						</listhead>
+						<template name="model">
+							<listitem>
+								<listcell label="${each.id_almacen}" />
+								<listcell label="${each.ubicacion }" />
+								<listcell
+									label="${each.cuenta.cuenta }" />
+							</listitem>
+						</template>
+					</listbox>
+				</panelchildren>
+			</panel>
+		</hbox>
+		<hlayout hflex="1" vflex="1">
+			<panel title="Detalle de Almacen" width="600px"
+				sclass="panel" id="pnlProductosAlmacen">
+				<panelchildren>
+					<listbox height="400px" style="overflow:auto;"
+						id="lstDetalleAlmacen">
+						<listhead>
+							<listheader label="Producto" sort="auto" />
+							<listheader label="U/M" sort="auto" />
+							<listheader label="Cantidad" />
+						</listhead>
+						<template name="model">
+							<listitem>
+								<listcell
+									label="${each.producto.descripcion }" />
+								<listcell
+									label="${each.unidadMedida.descripcion_corta }" />
+								<listcell label="${each.cantidad }" />
+							</listitem>
+						</template>
+					</listbox>
+				</panelchildren>
+			</panel>
+			<vlayout>
+				<panel title="Entradas de Materiales" width="400px"
+					border="normal" sclass="panel" id="pnlEntradasMateriales">
+					<panelchildren>
+						<listbox height="150px" style="overflow:auto;"
+							id="lstEntradasMateriales">
+							<listhead>
+								<listheader label="No. Entrada"
+									sort="auto" />
+								<listheader label="Fecha Entrada"
+									sort="auto" />
+								<listheader label="Monto C$"
+									sort="auto" />
+							</listhead>
+							<template name="model">
+								<listitem>
+									<listcell
+										label="${each.id_entrada }" />
+									<listcell
+										label="${each.fecha_entrada }" />
+									<listcell
+										label="${each.getMonto_total() }" />
+								</listitem>
+							</template>
+						</listbox>
+						<toolbar align="end"
+							id="tlbEntradasMateriales">
+							<toolbarbutton label=""
+								id="tlbtnCheckEntrada" image="imgs/16/grey/dialog-ok.png"
+								disabled="true" />
+							<toolbarbutton label="" id="tlbtnVerEntrada"
+								image="imgs/16/grey/zoom-fit.png" disabled="true" />
+							<toolbarbutton label=""
+								id="tlbtnEliminarEntrada" image="imgs/16/grey/window-close.png"
+								disabled="true" />
+							<toolbarbutton label=""
+								id="tlbtnNuevaEntrada" tooltiptext="nueva entrada"
+								image="imgs/16/grey/list-add.png" />
+						</toolbar>
+					</panelchildren>
+				</panel>
+				<panel title="Salidas de Materiales" width="400px"
+					sclass="panel" id="pnlSalidasMateriales">
+					<panelchildren>
+						<listbox height="150px" style="overflow:auto;"
+							id="lstSalidasMateriales">
+							<listhead>
+								<listheader label="No. Salida"
+									sort="auto" />
+								<listheader label="Fecha Salida"
+									sort="auto" />
+								<listheader label="Monto C$"
+									sort="auto" />
+							</listhead>
+							<template name="model">
+								<listitem>
+									<listcell
+										label="${each.id_salida }" />
+									<listcell
+										label="${each.fecha_salida }" />
+									<listcell
+										label="${each.monto_total }" />
+								</listitem>
+							</template>
+						</listbox>
+						<toolbar align="end"
+							id="tblSalidasMateriales">
+							<toolbarbutton label=""
+								id="tlbtnChecksalida" image="imgs/16/grey/dialog-ok.png"
+								disabled="true" />
+							<toolbarbutton label="" id="tlbtnVersalida"
+								image="imgs/16/grey/zoom-fit.png" disabled="true" />
+							<toolbarbutton label=""
+								id="tlbtnEliminarSalida" image="imgs/16/grey/window-close.png"
+								disabled="true" />
+							<toolbarbutton label=""
+								id="tlbtnNuevaSalida" tooltiptext="nueva salida"
+								image="imgs/16/grey/list-add.png" />
+						</toolbar>
+					</panelchildren>
+				</panel>
+			</vlayout>
+		</hlayout>
+	</vlayout>
+</window>

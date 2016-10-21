@@ -1,0 +1,33 @@
+<?page title="Sistema Administrativo - E.Com :: Ingreso" contentType="text/html;charset=UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="/css/estilo.css"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/templates/basic_template.zul"?>
+<zk>
+	<hbox hflex="1" vflex="1" align="center" self="@define(contenido)"
+		pack="center" spacing="20px">
+		<vlayout>
+			<window title="Ingreso al Sistema" border="normal" id="loginWin"
+				hflex="min" apply="com.ecom.safecom.controllers.LoginController">
+				<vbox align="center" hflex="min">
+					<grid hflex="min">
+						<columns>
+							<column label="" align="right" hflex="min" />
+							<column label="" />
+						</columns>
+						<rows>
+							<row>
+								Nombre de Usuario:
+								<textbox id="nombreusuario" width="200px" />
+							</row>
+							<row>
+								Contraseña:
+								<textbox id="contrasenna" type="password" width="200px" />
+							</row>
+						</rows>
+					</grid>
+					<label value="&#160;" id="mensaje" sclass="warn" />
+					<button label="Entrar" id="entrar" />
+				</vbox>
+			</window>
+		</vlayout>
+	</hbox>
+</zk>

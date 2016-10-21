@@ -1,0 +1,19 @@
+<window border="normal" height="150px" width="300px"
+	apply="com.ecom.safecom.controllers.AutenUserController"
+	id="wAutenUser">
+	<caption label="Validación de Usuario" sclass="fn-caption" />
+	<hlayout hflex="1" vflex="1">
+		<vbox hflex="1">
+			<textbox id="txtUsername" constraint="no empty" />
+			<textbox type="password" id="txtPassword"
+				constraint="no empty" />
+			<label value="" id="lblMensajeError" sclass="color:red;" hflex="1"/>
+			<hbox>
+				<button label="Cancelar" id="btnCancelar"/>
+				<button label="Ok" id="btnOk"/>
+			</hbox>
+		</vbox>
+		<image src="/imgs/64/dialog-password.png" height="64px"
+			width="64px" style="margin:25px;"/>
+	</hlayout>
+</window>

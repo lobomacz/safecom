@@ -1,0 +1,196 @@
+<?link href="/extilo.css" rel="stylesheet" type="text/css" ?>
+<window title="Materiales" border="normal" id="wUnidadesMedida"
+	hflex="1" vflex="1"
+	apply="com.ecom.safecom.controllers.UnidadesMedidaController">
+	<caption label="Unidades de Medida" src="imgs/48/medidas.png"
+		sclass="fn-caption" />
+	<tabbox orient="top" hflex="1" vflex="1" id="tabsUnidadesMedida">
+		<tabs width="120px">
+			<tab label="Unidades" />
+			<tab label="Conversiones" />
+		</tabs>
+		<toolbar id="tlbHerramientas">
+			<toolbarbutton label="" id="tlbtnImprimir"
+				image="imgs/16/gtk-print.png" tooltiptext="Imprimir"
+				disabled="true" />
+			<toolbarbutton label="" id="tlbtnRecargar"
+				image="imgs/16/reload.png" tooltiptext="Recargar" />
+			<toolbarbutton label="" id="tlbtnGuardar"
+				image="imgs/16/gtk-save.png" tooltiptext="Guardar" disabled="true" />
+			<toolbarbutton label="" id="tlbtnEditar"
+				image="imgs/16/gtk-edit.png" tooltiptext="Editar" disabled="true" />
+			<toolbarbutton label="" id="tlbtnAgregar"
+				image="imgs/16/add.png" tooltiptext="Nuevo" />
+			<toolbarbutton label="" id="tlbtnEliminar"
+				image="imgs/16/gtk-remove.png" tooltiptext="Eliminar"
+				disabled="true" />
+		</toolbar>
+		<tabpanels>
+			<tabpanel>
+				<borderlayout>
+					<north title="Datos de Unidades de Medida">
+						<hbox spacing="20px">
+							<vbox spacing="10px"
+								style="padding:10px;">
+								Unidad de Medida:
+								<textbox id="txtDescripcionUnidad"
+									width="200px" maxlength="25" constraint="no empty"
+									disabled="true" />
+								Nombre Corto:
+								<textbox id="txtDescripcionCortaUnidad"
+									width="100px" maxlength="15" constraint="no empty"
+									disabled="true" />
+							</vbox>
+							<vbox style="padding:10px;">
+								<checkbox id="chkUnidadBase"
+									label="Unidad Base" disabled="true" />
+							</vbox>
+						</hbox>
+					</north>
+					<center title="Listado de Unidades de Medida"
+						style="overflow:auto;">
+						<listbox id="lstUnidadesMedida">
+							<listhead>
+								<listheader label="Id" sort="auto"
+									hflex="1" />
+								<listheader label="Unidad de Medida"
+									sort="auto" hflex="3" />
+								<listheader label="Nombre Corto"
+									sort="auto" hflex="2" />
+								<listheader label="Unidad Base"
+									hflex="1" />
+							</listhead>
+							<template name="model">
+								<listitem>
+									<listcell
+										label="${each.id_unidad_medida }" />
+									<listcell
+										label="${each.descripcion_unidad }" />
+									<listcell
+										label="${each.descripcion_corta }" />
+									<listcell
+										label="${each.unidad_base }" />
+								</listitem>
+							</template>
+						</listbox>
+					</center>
+				</borderlayout>
+			</tabpanel>
+			<tabpanel>
+				<borderlayout>
+					<north>
+						<grid>
+							<columns>
+								<column label="" />
+								<column label="" />
+							</columns>
+							<rows>
+								<row>
+									<vbox>
+										Unidad Origen:
+										<bandbox id="bbxUnidadOrigen" disabled="true" constraint="no empty">
+											<bandpopup>
+												<vbox>
+													<hbox>
+														Filtro:
+														<textbox
+															id="filtrounidadorigen" width="100px" />
+													</hbox>
+													<listbox
+														id="lstUnidadOrigen" width="200px"
+														style="overflow:auto;">
+														<listhead>
+															<listheader
+																label="Unidad" sort="auto" />
+															<listheader
+																label="Corto" sort="auto" />
+														</listhead>
+														<template
+															name="model">
+															<listitem>
+																<listcell
+																	label="${each.descripcion_unidad }" />
+																<listcell
+																	label="${each.descripcion_corta }" />
+															</listitem>
+														</template>
+													</listbox>
+												</vbox>
+											</bandpopup>
+										</bandbox>
+										Unidad Destino:
+										<bandbox
+											id="bbxUnidadDestino" disabled="true" constraint="no empty">
+											<bandpopup>
+												<vbox>
+													<hbox>
+														Filtro:
+														<textbox
+															id="filtrounidaddestino" width="100px" />
+													</hbox>
+													<listbox
+														id="lstUnidadDestino" width="200px"
+														style="overflow:auto;">
+														<listhead>
+															<listheader
+																label="Unidad" sort="auto" />
+															<listheader
+																label="Corto" sort="auto" />
+														</listhead>
+														<template
+															name="model">
+															<listitem>
+																<listcell
+																	label="${each.descripcion_unidad }" />
+																<listcell
+																	label="${each.descripcion_corta }" />
+															</listitem>
+														</template>
+													</listbox>
+												</vbox>
+											</bandpopup>
+										</bandbox>
+									</vbox>
+									<vbox>
+										Conversión Directa:
+										<decimalbox
+											id="dcmbConversionDirecta" disabled="true" constraint="no empty, no negative" />
+										Conversión Inversa:
+										<decimalbox
+											id="dcmbConversionInversa" disabled="true" readonly="true"/>
+									</vbox>
+								</row>
+							</rows>
+						</grid>
+					</north>
+					<center>
+						<listbox id="lstConversionesUnidades">
+							<listhead>
+								<listheader label="Und Origen"
+									sort="auto" />
+								<listheader label="Und Destino"
+									sort="auto" />
+								<listheader label="Conv. Directa"
+									sort="auto" />
+								<listheader label="Conv. Inversa"
+									sort="auto" />
+							</listhead>
+							<template name="model">
+								<listitem>
+									<listcell
+										label="${each.unidadorigen.descripcion_unidad }" />
+									<listcell
+										label="${each.unidaddestino.descripcion_unidad }" />
+									<listcell
+										label="${each.conversion_directa }" />
+									<listcell
+										label="${each.conversion_inversa }" />
+								</listitem>
+							</template>
+						</listbox>
+					</center>
+				</borderlayout>
+			</tabpanel>
+		</tabpanels>
+	</tabbox>
+</window>

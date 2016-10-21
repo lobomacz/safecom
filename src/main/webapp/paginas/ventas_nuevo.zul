@@ -1,0 +1,233 @@
+<?link href="/estilo.css" type="text/css" rel="stylesheet" ?>
+<zk>
+	<window title="Nuevo" border="normal"
+		apply="com.ecom.safecom.controllers.VentasNuevoController" hflex="1"
+		vflex="1" sizable="false" closable="false" id="wVentas">
+		<caption src="imgs/48/ventas.png" label="Ventas/Proformas"
+			height="48px" sclass="fn-caption" id="captVentas" />
+		<vbox hflex="1" vflex="1">
+			<hbox align="end" hflex="1" pack="end">
+				<button label="Guardar" id="btnGuardar" />
+			</hbox>
+			<borderlayout hflex="1" vflex="1">
+				<north height="146px">
+					<grid>
+						<columns>
+							<column label="" />
+							<column label="" />
+							<column label="" />
+							<column label="" />
+						</columns>
+						<rows>
+							<row>
+								<cell>
+									<vbox>
+										<label value="Almacen:" />
+										<label value="" id="lblAlmacen"
+											style="font-weight:bold;" />
+										Cliente:
+										<bandbox id="bdbCliente">
+											<bandpopup width="250px"
+												height="150px" style="overflow:auto;">
+												<vbox>
+													<textbox
+														id="txtNombreCliente" placeholder="Nombre" />
+													<listbox
+														id="lstClientes">
+														<listhead>
+															<listheader
+																label="Id" sort="auto" width="30%" />
+															<listheader
+																label="Nombre" sort="auto" width="70%" />
+														</listhead>
+														<template
+															name="model">
+															<listitem>
+																<listcell
+																	label="${each.id_tercero }" />
+																<listcell
+																	label="${each.nombre }" />
+															</listitem>
+														</template>
+													</listbox>
+												</vbox>
+											</bandpopup>
+										</bandbox>
+										<a id="lnkNuevoCliente">
+											Nuevo Cliente
+										</a>
+									</vbox>
+								</cell>
+								<cell>
+									<vbox>
+										Observaciones:
+										<textbox id="txtObservaciones"
+											multiline="true" maxlength="200" cols="20" rows="10"
+											placeholder="Observaciones" width="220px" height="70px"
+											style="overflow:auto;" />
+									</vbox>
+								</cell>
+								<vbox>
+									<checkbox id="chkEntregado"
+										label="Entregado" />
+									<checkbox id="chkAnulado"
+										label="Anulado" />
+								</vbox>
+								<vbox>
+									<hbox>
+										<label value="SubTotal C$:" />
+										<label value="0.00"
+											id="lblSubTotal" />
+									</hbox>
+									<hbox>
+										<label value="I.V.A. C$:" />
+										<label value="0.00" id="lblIva" />
+									</hbox>
+									<hbox>
+										<label value="Monto Total C$:" />
+										<label value="0.00"
+											id="lblTotal" />
+									</hbox>
+								</vbox>
+
+							</row>
+						</rows>
+					</grid>
+				</north>
+				<west title="Artículos" width="40%"
+					style="overflow:auto;">
+					<vbox height="100px" style="overflow:auto;">
+						<grid>
+							<columns>
+								<column />
+								<column />
+							</columns>
+							<rows>
+								<row>
+									<cell>
+										Artículo:
+										<bandbox id="bdbArticulo">
+											<bandpopup height="200px"
+												width="350px" style="overflow:auto;">
+												<vbox>
+													<hbox>
+														Buscar
+														<textbox
+															id="txtBuscaCodArticulo" placeholder="Cod. Producto" />
+														<textbox
+															id="txtBuscaDescArticulo" placeholder="Descripción" />
+													</hbox>
+													<listbox
+														id="lstProductos">
+														<listhead>
+															<listheader
+																label="Cod. Producto" sort="auto" />
+															<listheader
+																label="Descripción" sort="auto" />
+														</listhead>
+														<template
+															name="model">
+															<listitem>
+																<listcell
+																	label="${each.codigo_producto }" />
+																<listcell
+																	label="${each.descripcion }" />
+															</listitem>
+														</template>
+													</listbox>
+												</vbox>
+											</bandpopup>
+										</bandbox>
+									</cell>
+									<cell>
+										Unidad/Medida:
+										<combobox
+											id="cmbUnidadMedida">
+											<template name="model">
+												<comboitem
+													label="${each.descripcion_corta }" />
+											</template>
+										</combobox>
+									</cell>
+								</row>
+								<row>
+									<cell>
+										<vbox>
+											<hbox>
+												Exist.:
+												<decimalbox
+													id="dcmbExistencia" width="100px" readonly="true" />
+											</hbox>
+											<hbox>
+												Cantidad:
+												<decimalbox
+													id="dcmbCantidad" width="100px" />
+											</hbox>
+										</vbox>
+									</cell>
+									<cell align="center"
+										valign="middle">
+										<button label="Agregar"
+											id="btnAgregarArticulo" />
+									</cell>
+								</row>
+							</rows>
+						</grid>
+						<listbox id="lstPrecios" width="400px"
+							height="150px" style="overflow:auto;">
+							<listhead>
+								<listheader label="Precio C$"
+									sort="auto" width="40%" />
+								<listheader label="Tipo" width="45%" />
+							</listhead>
+							<template name="model">
+								<listitem>
+									<listcell label="${each.precio }" />
+									<listcell
+										label="${each.tipo_precio }" />
+								</listitem>
+							</template>
+						</listbox>
+					</vbox>
+				</west>
+				<center title="Detalle de Venta"
+					style="overflow:auto;">
+					<vbox>
+						<hbox>
+							<button label="Remover"
+								id="btnRemoverArticulo" disabled="true" />
+							<button label="Entregado"
+								id="btnEntregarArticulo" disabled="true" />
+						</hbox>
+
+						<listbox height="150px" style="overflow:auto;"
+							id="lstDetalleVenta">
+							<listhead>
+								<listheader label="Cod. Producto"
+									sort="auto" />
+								<listheader label="Descripción"
+									sort="auto" />
+								<listheader label="Precio Unit. C$" />
+								<listheader label="Cant." />
+								<listheader label="Total C$" />
+							</listhead>
+							<template name="model">
+								<listitem>
+									<listcell
+										label="${each.iddetalle.codigo_producto }" />
+									<listcell
+										label="${each.producto.descripcion }" />
+									<listcell
+										label="${each.precio_unitario }" />
+									<listcell label="${each.cantidad }" />
+									<listcell
+										label="${each.monto_total }" />
+								</listitem>
+							</template>
+						</listbox>
+					</vbox>
+				</center>
+			</borderlayout>
+		</vbox>
+	</window>
+</zk>

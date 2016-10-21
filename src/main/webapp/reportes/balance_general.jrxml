@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2016-10-13T09:24:06 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="balance_general" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="58f64f26-1cee-4fe9-82dc-0686461640ab">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="Cuenta" class="java.lang.String"/>
+	<field name="Debe" class="java.math.BigDecimal"/>
+	<field name="Haber" class="java.math.BigDecimal"/>
+	<variable name="Debe1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{Debe}]]></variableExpression>
+	</variable>
+	<variable name="Haber1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{Haber}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="82" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="175" height="81" uuid="931834ed-be6a-4a11-b819-07dfd5422e8c"/>
+				<imageExpression><![CDATA["src/main/webapp/imgs/logo_ecom_header.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement key="" x="180" y="0" width="260" height="30" uuid="8e3bc0a8-362b-42e2-86a0-e3d49f3cdca6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="24"/>
+				</textElement>
+				<text><![CDATA[Ferretería ECom]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="30" width="252" height="30" uuid="0043113e-c83d-43d7-9dd2-7533f158badd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="18"/>
+				</textElement>
+				<text><![CDATA[El punto de su economía]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="60" width="200" height="22" uuid="d1682a51-182a-4e2b-a50a-4b281c6df996"/>
+				<textElement textAlignment="Center" markup="">
+					<font fontName="Verdana" size="16"/>
+				</textElement>
+				<text><![CDATA[Balance General]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="51" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="12" y="15" width="278" height="30" uuid="3a425627-d4c4-45fd-a15a-0807b0e62902"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cuenta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="316" y="15" width="100" height="30" uuid="f1339c68-9529-430e-a1af-357a4153a66c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Debe]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="443" y="15" width="100" height="30" uuid="edaeb85c-a641-4eba-bea9-8d123a110999"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Haber]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="51" width="570" height="1" uuid="01d10161-3ad2-47f4-aaa3-74227a946ebc"/>
+			</line>
+			<line>
+				<reportElement x="0" y="1" width="570" height="1" uuid="74d0222a-a608-45de-8b6b-9da75c5bd8df"/>
+			</line>
+			<line>
+				<reportElement x="430" y="0" width="1" height="51" uuid="4798d343-0356-412a-85b2-b6618f4b3ae7"/>
+			</line>
+			<line>
+				<reportElement x="305" y="2" width="1" height="51" uuid="5ad4734f-7650-4625-9599-c212fd0ab0ce"/>
+			</line>
+			<line>
+				<reportElement x="1" y="-1" width="1" height="51" uuid="349c5c21-a6bd-4635-9511-abd6db93a07c"/>
+			</line>
+			<line>
+				<reportElement x="570" y="0" width="1" height="51" uuid="390f92bc-17f1-466d-bcc2-1f76a58cd185"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="53" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="10" width="278" height="30" uuid="17754bd9-01d6-49d2-a1ac-cd0e024688c1"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Cuenta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="316" y="11" width="100" height="30" uuid="4db49986-91c5-4c85-aca0-7d061dcd2063"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Debe}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="441" y="10" width="100" height="30" uuid="231b3300-c655-482b-bafb-ffd07ff297f0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Haber}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-1" y="6" width="570" height="1" uuid="7c05807e-8bfe-42d4-ba00-5d77345a7095"/>
+			</line>
+			<line>
+				<reportElement x="-2" y="46" width="570" height="1" uuid="b2ae6749-c8d0-4353-9a4e-e19c004833bf"/>
+			</line>
+			<line>
+				<reportElement x="306" y="5" width="1" height="42" uuid="2d6bc18b-8c67-4758-aefc-d86aed920e93"/>
+			</line>
+			<line>
+				<reportElement x="430" y="7" width="1" height="42" uuid="1ad5d13d-a430-4bc6-8bb5-e09199eaa5f4"/>
+			</line>
+			<line>
+				<reportElement x="0" y="7" width="1" height="42" uuid="a10a62a8-5de3-4df3-9888-50d297c04010"/>
+			</line>
+			<line>
+				<reportElement x="570" y="5" width="1" height="42" uuid="ebd4b0ad-684b-470c-9285-2fb648351e17"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="47" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="58" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="64" splitType="Stretch">
+			<textField>
+				<reportElement x="316" y="20" width="100" height="30" uuid="eb552dda-cd3e-427c-a195-b8001a7916df"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Debe1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="443" y="20" width="100" height="30" uuid="7e3e5758-6aab-4ec7-b365-88853ad221f0"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Haber1}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="9" width="570" height="1" uuid="6258618d-36fb-42dc-86a9-569c1bde0b58"/>
+			</line>
+			<line>
+				<reportElement x="1" y="60" width="570" height="1" uuid="a8509c31-8fb8-49c6-bede-7e4a1a09b0bd"/>
+			</line>
+			<line>
+				<reportElement x="430" y="6" width="1" height="52" uuid="af06de16-01e9-401e-8dee-058cc9cbe1fe"/>
+			</line>
+			<line>
+				<reportElement x="305" y="6" width="1" height="52" uuid="5a6a386d-06fa-4338-af5d-a455072fe771"/>
+			</line>
+			<line>
+				<reportElement x="0" y="9" width="1" height="52" uuid="320c8b4b-908e-49da-b204-a1a453062087"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

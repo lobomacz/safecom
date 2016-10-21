@@ -1,0 +1,60 @@
+<?link href="/extilo.css" rel="stylesheet" type="text/css" ?>
+<window title="Materiales" border="normal" id="wTiposProducto"
+	apply="com.ecom.safecom.controllers.TipoProductoController">
+	<caption label="Tipos de Producto" src="imgs/48/tipo-producto.png"
+		sclass="fn-caption" />
+	<vbox>
+		<toolbar id="tlbHerramientas">
+			<toolbarbutton label="" id="tlbtnImprimir"
+				image="imgs/16/gtk-print.png" tooltiptext="Imprimir"
+				disabled="true" />
+			<toolbarbutton label="" id="tlbtnRecargar"
+				image="imgs/16/reload.png" tooltiptext="Recargar" />
+			<toolbarbutton label="" id="tlbtnGuardar"
+				image="imgs/16/gtk-save.png" tooltiptext="Guardar" disabled="true" />
+			<toolbarbutton label="" id="tlbtnEditar"
+				image="imgs/16/gtk-edit.png" tooltiptext="Editar" disabled="true" />
+			<toolbarbutton label="" id="tlbtnAgregar"
+				image="imgs/16/add.png" tooltiptext="Nuevo" />
+			<toolbarbutton label="" id="tlbtnEliminar"
+				image="imgs/16/gtk-remove.png" tooltiptext="Eliminar"
+				disabled="true" />
+		</toolbar>
+		<label value="Categorías de Productos"
+			style="font:bold 14pt arial,sans-serif;" />
+		<label value="Descripción:" />
+		<textbox id="txtDescripcionTipoProducto" width="200px"
+			constraint="no empty" placeholder="Descripción" />
+		<label value="Cuenta de Inventario" />
+		<combobox id="cmbCuentaTipoProducto"
+			tooltiptext="Cuenta Contable" autodrop="true"
+			placeholder="Cuenta Contable" disabled="true" constraint="no empty" width="50%">
+			<template name="model">
+				<comboitem label="${each.cuenta }>>${each.nombre }"
+					value="${each.cuenta }" />
+			</template>
+		</combobox>
+		<label value="Cuenta de Costo" />
+		<combobox id="cmbCuentaCostoProducto"
+			tooltiptext="Cuenta de Costo" autodrop="true"
+			placeholder="Cuenta de Costo" disabled="true" constraint="no empty" width="50%">
+			<template name="model">
+				<comboitem label="${each.cuenta }>>${each.nombre }"
+					value="${each.cuenta }" />
+			</template>
+		</combobox>
+		<listbox style="margin:10px;overflow:auto;" height="200px"
+			id="lstTiposProducto" width="600px">
+			<listhead>
+				<listheader label="Id" sort="auto" width="100px" />
+				<listheader label="Descripción" sort="auto" />
+			</listhead>
+			<template name="model">
+				<listitem>
+					<listcell label="${each.id_tipo_producto }" />
+					<listcell label="${each.descripcion }" />
+				</listitem>
+			</template>
+		</listbox>
+	</vbox>
+</window>

@@ -1,0 +1,7 @@
+<tabbox id="fnList" hflex="1" vflex="1" sclass="menulateral"
+	apply="com.ecom.safecom.controllers.PaginaMenuLateralController" mold="accordion">
+	<tabs>
+	</tabs>
+	<tabpanels>
+	</tabpanels>
+</tabbox>

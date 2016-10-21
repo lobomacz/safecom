@@ -1,0 +1,59 @@
+<?page title="Precios por producto" contentType="text/html;charset=UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="/css/estilo.css"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/templates/basic_template.zul"?>
+<zk>
+	<window self="@define(contenido)" title="" border="normal"
+		id="mainprecioproducto" hflex="1" vflex="1">
+		<caption src="imgs/96/image-x-generic.png" label="Producto"
+			sclass="fn-caption" />
+		<toolbar orient="horizontal" id="preciostools">
+			<toolbarbutton label="" id="agregaprecio" image="imgs/16/list-add.png" />
+			<toolbarbutton label="" id="borraprecio" image="imgs/16/gtk-cancel.png" />
+			<toolbarbutton label="" id="guardaprecio" image="imgs/16/media-floppy.png" />
+		</toolbar>
+		<borderlayout>
+			<north title="Datos de Precios" splittable="true" collapsible="true">
+				<grid height="90px" width="400px">
+					<columns>
+						<column label="" />
+						<column label="" />
+					</columns>
+					<rows>
+						<row>
+							<cell width="100px">Tipo de Precio:</cell>
+							<combobox id="tipoprecio">
+								<comboitem label="Precio Base" value="base" />
+								<comboitem label="Precio de Menudeo" value="menudeo" />
+								<comboitem label="Precio Promocional" value="promo" />
+								<comboitem label="Precio Preferencial" value="preferencial" />
+								<comboitem label="Precio de Combo" value="combo" />
+								<comboitem label="Otro" value="otro" />
+							</combobox>
+						</row>
+						<row>
+							<cell width="100px">Precio:</cell>
+							<decimalbox id="precioproducto" width="100px" />
+						</row>
+					</rows>
+				</grid>
+			</north>
+			<center title="Lista de Precios">
+				<listbox width="500px" id="listaprecios">
+					<listhead>
+						<listheader label="Tipo de Precio" sort="auto" />
+						<listheader label="Precio" sort="auto" />
+					</listhead>
+					<listitem>
+						<listcell label="" />
+						<listcell label="" />
+					</listitem>
+					<listitem>
+						<listcell label="" />
+						<listcell label="" />
+					</listitem>
+				</listbox>
+
+			</center>
+		</borderlayout>
+	</window>
+</zk>

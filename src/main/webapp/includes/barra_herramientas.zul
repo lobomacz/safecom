@@ -1,0 +1,13 @@
+<toolbar id="tlbHerramientas">
+	<toolbarbutton label="" id="tlbtnImprimir"
+		image="imgs/16/gtk-print.png" tooltiptext="Imprimir" disabled="true"/>
+	<toolbarbutton label="" id="tlbtnRecargar"
+		image="imgs/16/reload.png" tooltiptext="Recargar"/>
+	<toolbarbutton label="" id="tlbtnGuardar"
+		image="imgs/16/gtk-save.png" tooltiptext="Guardar" disabled="true"/>
+	<toolbarbutton label="" id="tlbtnEditar"
+		image="imgs/16/gtk-edit.png" tooltiptext="Editar" disabled="true"/>
+	<toolbarbutton label="" id="tlbtnAgregar" image="imgs/16/add.png" tooltiptext="Nuevo"/>
+	<toolbarbutton label="" id="tlbtnEliminar"
+		image="imgs/16/gtk-remove.png" tooltiptext="Eliminar" disabled="true"/>
+</toolbar>

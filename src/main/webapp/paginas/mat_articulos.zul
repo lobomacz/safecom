@@ -1,0 +1,149 @@
+<?link href="/extilo.css" rel="stylesheet" type="text/css" ?>
+<window title="Materiales" border="normal" hflex="1" vflex="1" apply="com.ecom.safecom.controllers.MaterialesController" id="wMateriales">
+	<caption label="Artículos" sclass="fn-caption"
+		src="imgs/48/articulos.png" />
+	<vbox hflex="1" vflex="1">
+	<toolbar id="tlbHerramientas" vflex="min" hflex="1">
+				<toolbarbutton label="" id="tlbtnImprimir"
+					image="imgs/16/gtk-print.png" tooltiptext="Imprimir"
+					disabled="true" />
+				<toolbarbutton label="" id="tlbtnRecargar"
+					image="imgs/16/reload.png" tooltiptext="Recargar" />
+				<toolbarbutton label="" id="tlbtnGuardar"
+					image="imgs/16/gtk-save.png" tooltiptext="Guardar" disabled="true" />
+				<toolbarbutton label="" id="tlbtnEditar"
+					image="imgs/16/gtk-edit.png" tooltiptext="Editar" disabled="true" />
+				<toolbarbutton label="" id="tlbtnAgregar"
+					image="imgs/16/add.png" tooltiptext="Nuevo" />
+				<toolbarbutton label="" id="tlbtnEliminar"
+					image="imgs/16/gtk-remove.png" tooltiptext="Eliminar"
+					disabled="true" />
+			</toolbar>
+		<borderlayout hflex="1" vflex="1">
+			<north collapsible="true" splittable="true" hflex="1" vflex="min" open="false">
+				<grid>
+					<columns>
+						<column label="" />
+						<column label="" />
+						<column label="" />
+					</columns>
+					<rows>
+						<row>
+							<vbox>
+								<label value="Cod. Producto:" />
+								<textbox id="txtCodigoProducto"
+									width="150px" maxlength="15" placeholder="Código Producto"
+									constraint="no empty" disabled="true" />
+							</vbox>
+							<vbox>
+								<label value="Descripción:" />
+								<textbox id="txtDescripcionProducto"
+									width="200px" placeholder="Descripción" maxlength="45"
+									constraint="no empty" disabled="true" />
+							</vbox>
+							<cell rowspan="2">
+								<vbox>
+									<image
+										src="imgs/96/image-x-generic.png" id="imgImagenProducto"
+										height="96px" width="96px" />
+									<fileupload id="fuplImagenProducto"
+										width="96px" label="Imagen" tooltiptext="Cargar Imagen" visible="false"/>
+								</vbox>
+							</cell>
+						</row>
+						<row>
+							<vbox>
+								<label value="Tipo de Producto:" />
+								<combobox id="cmbTipoProducto"
+									width="200px" placeholder="Seleccione" autocomplete="true"
+									constraint="no empty" disabled="true">
+									<template name="model">
+										<comboitem
+											label="${each.descripcion}" value="${each.id_tipo_producto}" />
+									</template>
+								</combobox>
+							</vbox>
+							<vbox>
+								<label value="Costo:" />
+								<decimalbox id="dcmCostoProducto"
+									width="100px" format="###,##0.##"
+									constraint="no negative:el valor no puede ser negativo"
+									placeholder="00,000.00" style="text-align:right;"
+									disabled="true" locale="en"/>
+							</vbox>
+						</row>
+						<row>
+							<hbox>
+								<vbox>
+									<label value="Mínimo:" />
+									<spinner id="spnMinimoProducto"
+										placeholder="0" constraint="no empty" disabled="true" />
+								</vbox>
+								<vbox>
+									<label value="Máximo:" />
+									<spinner id="spnMaximoProducto"
+										placeholder="0" constraint="no empty" disabled="true" />
+								</vbox>
+							</hbox>
+							<vbox>
+								<label value="Unidad Base" />
+								<combobox id="cmbUnidadMedida"
+									tooltiptext="unidad base del producto" placeholder="Seleccione"
+									constraint="no empty" disabled="true">
+									<template name="model">
+										<comboitem
+											label="${each.descripcion_corta }"
+											value="${each.id_unidad_medida}" />
+									</template>
+								</combobox>
+							</vbox>
+							
+							<vbox>
+								<checkbox id="chkExento" label="Exento"/>
+								<checkbox id="chkComboProducto"
+									disabled="true" label="Para Combo"/>
+							</vbox>
+						</row>
+					</rows>
+				</grid>
+			</north>
+			<center hflex="1" vflex="min">
+				<panel title="Catálogo de Productos" hflex="1" vflex="1">
+					<panelchildren>
+						<toolbar>
+							<label value="Buscar:"
+								style="margin-right:5px;" />
+							<textbox id="txtTerminoArticulo"
+								width="150px" maxlength="15" />
+							<toolbarbutton label=""
+								id="btnBuscarArticulo" image="imgs/16/edit-find.png"
+								tooltiptext="buscar" />
+							<toolbarbutton label=""
+								image="imgs/16/gtk-refresh.png" tooltiptext="recargar"
+								id="recargaListaProductos" />
+							<toolbarbutton label="Precios"
+								id="btnPreciosproducto" />
+						</toolbar>
+						<listbox id="lstProductos" multiple="false"
+							mold="paging" vflex="1" pagingPosition="bottom" pageSize="10">
+							<listhead>
+								<listheader label="Código" width="200px"
+									id="hdcodigo_producto" />
+								<listheader label="Descripción"
+									id="hddescripcion_producto" />
+							</listhead>
+							<template name="model">
+								<listitem>
+									<listcell
+										label="${each.codigo_producto }" />
+									<listcell
+										label="${each.descripcion }" />
+								</listitem>
+							</template>
+						</listbox>
+					</panelchildren>
+				</panel>
+			</center>
+		</borderlayout>
+	</vbox>
+</window>

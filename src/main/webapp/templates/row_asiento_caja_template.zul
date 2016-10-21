@@ -1,0 +1,9 @@
+<row>
+	<textbox width="200px" />
+	<textbox width="200px" />
+	<combobox width="50px">
+		<comboitem label="db" value="db" />
+		<comboitem label="cr" value="cr" />
+	</combobox>
+	<textbox width="100px" />
+</row>

@@ -1,0 +1,52 @@
+<?link href="/estilo.css" type="text/css" rel="stylesheet"?>
+<window title="Asientos de Caja" border="normal" id="wAsientosCaja" width="615px">
+		<vbox hflex="1">
+			<grid>
+				<columns>
+					<column label="Cuenta" width="210px" />
+					<column label="Descripción" width="210px" />
+					<column label="db/cr" width="60px" />
+					<column label="Monto C$" width="110px" />
+				</columns>
+				<rows>
+					<row>
+						<textbox width="200px" />
+						<textbox width="200px" />
+						<combobox width="50px">
+							<comboitem label="db" value="db" />
+							<comboitem label="cr" value="cr" />
+						</combobox>
+						<textbox width="100px" />
+					</row>
+					<row>
+						<textbox width="200px" />
+						<textbox width="200px" />
+						<combobox width="50px">
+							<comboitem label="db" value="db" />
+							<comboitem label="cr" value="cr" />
+						</combobox>
+						<textbox width="100px" />
+					</row>
+					<row>
+						<textbox width="200px" />
+						<textbox width="200px" />
+						<combobox width="50px">
+							<comboitem label="db" value="db" />
+							<comboitem label="cr" value="cr" />
+						</combobox>
+						<textbox width="100px" />
+					</row>
+				</rows>
+			</grid>
+			<hbox hflex="1">
+				<hbox pack="start" hflex="1">
+					<a id="aggfila">mas filas</a>
+				</hbox>
+				<hbox pack="end" hflex="2">
+					<button label="Cancelar" onClick=""
+						id="btnCancelar" />
+					<button label="Guardar" onClick="" id="btnGuardar" />
+				</hbox>
+			</hbox>
+		</vbox>
+	</window>

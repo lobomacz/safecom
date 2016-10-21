@@ -1,0 +1,446 @@
+<?link href="/extilo.css" rel="stylesheet" type="text/css" ?>
+<window title="" border="normal" id="mainalmacen" hflex="1"
+	apply="com.ecom.safecom.controllers.AlmacenController">
+	<caption src="imgs/48/almacen.png" label="Control de Almacen"
+		height="48px" sclass="fn-caption" />
+	<tabbox id="tabsMateriales" hflex="1" tabscroll="true" height="650px">
+		<tabs width="100px">
+			<tab label="Almacen" />
+			<tab label="Articulos" />
+			<tab label="Grupos" />
+			<tab label="Unidades" />
+		</tabs>
+		<toolbar><!-- POSIBLEMENTE NO SE NECESITE LA BARRA DE HERRAMIENTAS -->
+			<toolbarbutton label="" id="guardaalmacen" image="imgs/16/media-floppy.png" />
+			<toolbarbutton label="" id="remalmacen" image="imgs/16/gtk-cancel.png" />
+			<toolbarbutton label="" id="addalmacen" image="imgs/16/list-add.png" />
+		</toolbar>
+		<tabpanels>
+			<tabpanel id="datosalmacen" style="overflow:auto;">
+				<vlayout vflex="1" hflex="1">
+					<hbox>
+						<label value="Id Almacen:" />
+						<intbox id="idalmacen" maxlength="5" disabled="true" width="100px" />
+					</hbox>
+					<hbox>
+						<label value="Cta. Contable:" id="ctaalmacen" />
+						<textbox />
+					</hbox>
+					<hbox>
+						<label value="Ubicación:" />
+						<textbox id="ubicacionalmacen" width="250px" maxlength="45" />
+					</hbox>
+					<hlayout hflex="1" vflex="1">
+						<panel title="Detalle de Almacen" width="600px" sclass="panel">
+							<panelchildren>
+								<listbox height="400px" style="overflow:auto;">
+									<listhead>
+										<listheader label="" sort="auto" />
+										<listheader label="" sort="auto" />
+									</listhead>
+									<listitem>
+										<listcell label="" />
+										<listcell label="" />
+									</listitem>
+									<listitem>
+										<listcell label="" />
+										<listcell label="" />
+									</listitem>
+									<listitem>
+										<listcell label="" />
+										<listcell label="" />
+									</listitem>
+									<listitem>
+										<listcell label="" />
+										<listcell label="" />
+									</listitem>
+									<listitem>
+										<listcell label="" />
+										<listcell label="" />
+									</listitem>
+									<listitem>
+										<listcell label="" />
+										<listcell label="" />
+									</listitem>
+									<listitem>
+										<listcell label="" />
+										<listcell label="" />
+									</listitem>
+									<listitem>
+										<listcell label="" />
+										<listcell label="" />
+									</listitem>
+								</listbox>
+							</panelchildren>
+						</panel>
+						<vlayout>
+							<panel title="Entradas de Materiales" width="400px" border="normal"
+								sclass="panel">
+								<panelchildren>
+									<listbox height="150px" style="overflow:auto;">
+										<listhead>
+											<listheader label="" sort="auto" />
+											<listheader label="" sort="auto" />
+										</listhead>
+										<listitem>
+											<listcell label="" />
+											<listcell label="" />
+										</listitem>
+										<listitem>
+											<listcell label="" />
+											<listcell label="" />
+										</listitem>
+										<listitem>
+											<listcell label="" />
+											<listcell label="" />
+										</listitem>
+										<listitem>
+											<listcell label="" />
+											<listcell label="" />
+										</listitem>
+										<listitem>
+											<listcell label="" />
+											<listcell label="" />
+										</listitem>
+										<listitem>
+											<listcell label="" />
+											<listcell label="" />
+										</listitem>
+									</listbox>
+									<toolbar align="end">
+										<toolbarbutton label="" id="checkentrada"
+											image="imgs/16/grey/dialog-ok.png" />
+										<toolbarbutton label="" id="verentrada"
+											image="imgs/16/grey/zoom-fit.png" />
+										<toolbarbutton label="" id="rementrada"
+											image="imgs/16/grey/window-close.png" />
+										<toolbarbutton label="" id="addentrada"
+											tooltiptext="nueva entrada" image="imgs/16/grey/list-add.png" />
+									</toolbar>
+								</panelchildren>
+							</panel>
+							<panel title="Salidas de Materiales" width="400px" sclass="panel">
+								<panelchildren>
+									<listbox height="150px" style="overflow:auto;">
+										<listhead>
+											<listheader label="" sort="auto" />
+											<listheader label="" sort="auto" />
+										</listhead>
+										<listitem>
+											<listcell label="" />
+											<listcell label="" />
+										</listitem>
+										<listitem>
+											<listcell label="" />
+											<listcell label="" />
+										</listitem>
+										<listitem>
+											<listcell label="" />
+											<listcell label="" />
+										</listitem>
+										<listitem>
+											<listcell label="" />
+											<listcell label="" />
+										</listitem>
+										<listitem>
+											<listcell label="" />
+											<listcell label="" />
+										</listitem>
+										<listitem>
+											<listcell label="" />
+											<listcell label="" />
+										</listitem>
+									</listbox>
+									<toolbar align="end">
+										<toolbarbutton label="" id="checksalida"
+											image="imgs/16/grey/dialog-ok.png" />
+										<toolbarbutton label="" id="versalida"
+											image="imgs/16/grey/zoom-fit.png" />
+										<toolbarbutton label="" id="remsalida"
+											image="imgs/16/grey/window-close.png" />
+										<toolbarbutton label="" id="addsalida"
+											tooltiptext="nueva entrada" image="imgs/16/grey/list-add.png" />
+									</toolbar>
+								</panelchildren>
+							</panel>
+						</vlayout>
+					</hlayout>
+				</vlayout>
+			</tabpanel>
+			<tabpanel id="panelarticulos" hflex="1" style="overflow:auto;"
+				height="600px">
+				<borderlayout hflex="1" vflex="1">
+					<north collapsible="true" splittable="true" visible="true"
+						height="200px" style="overflow:auto;">
+						<grid>
+							<columns>
+								<column label="" />
+								<column label="" />
+								<column label="" />
+							</columns>
+							<rows>
+								<row>
+									<vbox>
+										<label value="Cod. Producto:" />
+										<textbox id="codigoproducto" width="150px" maxlength="15"
+											placeholder="Código Producto" constraint="no empty" />
+									</vbox>
+									<vbox>
+										<label value="Descripción:" />
+										<textbox id="descproducto" width="200px" placeholder="Descripción"
+											maxlength="45" />
+									</vbox>
+									<cell rowspan="2">
+										<vbox>
+											<image src="imgs/96/image-x-generic.png" id="imagenproducto"
+												height="96px" width="96px" />
+											<fileupload id="imagenurl" width="96px" label="Imagen" />
+										</vbox>
+									</cell>
+								</row>
+								<row>
+									<vbox>
+										<label value="Tipo de Producto:" />
+										<combobox id="tipoproducto" width="200px">
+											<comboitem label="" />
+											<comboitem label="" />
+										</combobox>
+									</vbox>
+									<vbox>
+										<label value="Costo:" />
+										<decimalbox id="costoproducto" width="100px" />
+									</vbox>
+								</row>
+								<row>
+									<vbox>
+										<label value="Mínimo:" />
+										<intbox id="minimoproducto" />
+									</vbox>
+									<vbox>
+										<label value="Máximo:" />
+										<intbox id="maximoproducto" />
+									</vbox>
+									<vbox>
+										<label value="Para Combo:" />
+										<checkbox id="comboproducto" />
+									</vbox>
+								</row>
+							</rows>
+						</grid>
+					</north>
+					<center>
+						<panel title="Catálogo de Productos">
+							<panelchildren>
+								<toolbar>
+									<label value="Buscar:" style="margin-right:5px;" />
+									<textbox id="terminoarticulo" width="150px" maxlength="15" />
+									<toolbarbutton label="" id="buscararticulo"
+										image="imgs/16/edit-find.png" tooltiptext="buscar" />
+									<toolbarbutton label="Precios" id="preciosproducto" />
+								</toolbar>
+								<listbox>
+									<listhead>
+										<listheader label="Código" sort="auto" />
+										<listheader label="Descripción" sort="auto" />
+									</listhead>
+									<listitem>
+										<listcell label="" />
+										<listcell label="" />
+									</listitem>
+									<listitem>
+										<listcell label="" />
+										<listcell label="" />
+									</listitem>
+								</listbox>
+							</panelchildren>
+						</panel>
+					</center>
+				</borderlayout>
+			</tabpanel>
+			<tabpanel id="panelgrupos">
+				<window title="Categorías de Productos" border="normal"
+					height="300px" width="600px" id="catalogocategorias" style="margin:10px;overflow:auto;">
+					<label value="Descripción:" />
+					<textbox id="desccategoria" width="200px" />
+					<listbox style="margin:10px;overflow:auto;" height="200px">
+						<listhead>
+							<listheader label="Código Grupo" sort="auto" width="100px" />
+							<listheader label="Descripción" sort="auto" />
+						</listhead>
+						<listitem>
+							<listcell label="" />
+							<listcell label="" />
+						</listitem>
+						<listitem>
+							<listcell label="" />
+							<listcell label="" />
+						</listitem>
+						<listitem>
+							<listcell label="" />
+							<listcell label="" />
+						</listitem>
+						<listitem>
+							<listcell label="" />
+							<listcell label="" />
+						</listitem>
+						<listitem>
+							<listcell label="" />
+							<listcell label="" />
+						</listitem>
+						<listitem>
+							<listcell label="" />
+							<listcell label="" />
+						</listitem>
+					</listbox>
+				</window>
+			</tabpanel>
+			<tabpanel id="panelunidades">
+				<tabbox orient="left" hflex="1" vflex="1">
+					<tabs width="120px">
+						<tab label="Unidades" />
+						<tab label="Conversiones" />
+					</tabs>
+					<tabpanels>
+						<tabpanel>
+							<borderlayout>
+								<north title="Datos de Unidades de Medida">
+									<hbox spacing="20px">
+										<vbox spacing="10px" style="padding:10px;">
+											Unidad de Medida:
+											<textbox id="nombreunidad" width="200px" maxlength="25"
+												constraint="no empty" />
+											Nombre Corto:
+											<textbox id="nombrecortounidad" width="100px"
+												maxlength="15" />
+										</vbox>
+										<vbox style="padding:10px;">
+											<checkbox id="unidadbase" label="Unidad Base" />
+										</vbox>
+									</hbox>
+								</north>
+								<center title="Listado de Unidades de Medida">
+									<listbox>
+										<listhead>
+											<listheader label="Unidad de Medida" sort="auto" />
+											<listheader label="Nombre Corto" sort="auto" />
+											<listheader label="Unidad Base" />
+										</listhead>
+										<listitem>
+											<listcell label="" />
+											<listcell label="" />
+											<listcell label="" />
+										</listitem>
+										<listitem>
+											<listcell label="" />
+											<listcell label="" />
+											<listcell label="" />
+										</listitem>
+									</listbox>
+								</center>
+							</borderlayout>
+						</tabpanel>
+						<tabpanel>
+							<borderlayout>
+								<north>
+									<grid>
+										<columns>
+											<column label="" />
+											<column label="" />
+										</columns>
+										<rows id="unidadorigen">
+											<row>
+												<vbox>
+													Unidad Origen:
+													<bandbox>
+														<bandpopup>
+															<vbox>
+																<hbox>
+																	Filtro:
+																	<textbox id="filtrounidadorigen" width="100px" />
+																</hbox>
+																<listbox id="listaunidadorigen" width="200px"
+																	style="overflow:auto;">
+																	<listhead>
+																		<listheader label="Unidad" sort="auto" />
+																		<listheader label="Corto" sort="auto" />
+																	</listhead>
+																	<listitem>
+																		<listcell label="" />
+																		<listcell label="" />
+																	</listitem>
+																	<listitem>
+																		<listcell label="" />
+																		<listcell label="" />
+																	</listitem>
+																</listbox>
+															</vbox>
+														</bandpopup>
+													</bandbox>
+													Unidad Destino:
+													<bandbox id="unidaddestino">
+														<bandpopup>
+															<vbox>
+																<hbox>
+																	Filtro:
+																	<textbox id="filtrounidaddestino" width="100px" />
+																</hbox>
+																<listbox id="listaunidaddestino" width="200px"
+																	style="overflow:auto;">
+																	<listhead>
+																		<listheader label="Unidad" sort="auto" />
+																		<listheader label="Corto" sort="auto" />
+																	</listhead>
+																	<listitem>
+																		<listcell label="" />
+																		<listcell label="" />
+																	</listitem>
+																	<listitem>
+																		<listcell label="" />
+																		<listcell label="" />
+																	</listitem>
+																</listbox>
+															</vbox>
+														</bandpopup>
+													</bandbox>
+												</vbox>
+												<vbox>
+													Conversión Directa:
+													<doublebox />
+													Conversión Inversa:
+													<doublebox />
+												</vbox>
+											</row>
+										</rows>
+									</grid>
+								</north>
+								<center>
+									<listbox>
+										<listhead>
+											<listheader label="Und Origen" sort="auto" />
+											<listheader label="Und Destino" sort="auto" />
+											<listheader label="Conv. Directa" sort="auto" />
+											<listheader label="Conv. Inversa" sort="auto" />
+										</listhead>
+										<listitem>
+											<listcell label="" />
+											<listcell label="" />
+											<listcell label="" />
+											<listcell label="" />
+										</listitem>
+										<listitem>
+											<listcell label="" />
+											<listcell label="" />
+											<listcell label="" />
+											<listcell label="" />
+										</listitem>
+									</listbox>
+
+								</center>
+							</borderlayout>
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</tabpanel>
+		</tabpanels>
+	</tabbox>
+</window>

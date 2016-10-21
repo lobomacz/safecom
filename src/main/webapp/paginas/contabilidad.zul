@@ -1,0 +1,24 @@
+<?link href="/extilo.css" rel="stylesheet" type="text/css" ?>
+<window apply="com.ecom.safecom.controllers.ContabilidadController"
+	border="normal" id="winContabilidad" hflex="1" vflex="1">
+	<caption src="imgs/48/view-expenses-categories.png"
+		label="Contabilidad" sclass="fn-caption" />
+	<vlayout>
+	<vbox visible="false" id="vbDatosProgreso">
+	</vbox>
+	<label value="Contabilizar asientos por período abierto." sclass="campo-valor" style="margin-top:5em;"/>
+	<combobox id="cmbPeriodos">
+	<template name="model">
+	<comboitem label="${each.nombre }"/>
+	</template>
+	</combobox>
+	<button label="Contabilizar" height="3em" width="8em" id="btnContaPeriodo"/>
+	<separator height="4px;" width="50%" orient="horizontal" spacing="20px" visible="true" bar="true"/>
+	<label value="Contabilizar asientos por rango de fechas." sclass="campo-valor" style="margin-top:5em;"/>
+	<label value="Fecha de Inicio" />
+	<datebox id="dtbFechaInicio"/>
+	<label value="Fecha Final" />
+	<datebox id="dtbFechaFinal"/>
+	<button label="Contabilizar" height="3em" width="8em" id="btnContaFechas"/>
+	</vlayout>
+</window>

@@ -1,0 +1,80 @@
+<?link href="/estilo.css" type="text/css" rel="stylesheet"?>
+<zk>
+	<window title="Caja" border="normal" id="wCajaMain"
+		apply="com.ecom.safecom.controllers.CajaMainController">
+		<caption label="Control de Caja" sclass="fn-caption" />
+		<vlayout>
+			<toolbar id="tlbHerramientas">
+				<toolbarbutton label="" id="tlbtnRecargar"
+					image="imgs/16/reload.png" tooltiptext="Recargar" />
+				<toolbarbutton label="" id="tlbtnGuardar"
+					image="imgs/16/gtk-save.png" tooltiptext="Guardar" disabled="true" />
+				<toolbarbutton label="" id="tlbtnAgregar"
+					image="imgs/16/add.png" tooltiptext="Nuevo" />
+				<toolbarbutton label="" id="tlbtnEliminar"
+					image="imgs/16/gtk-remove.png" tooltiptext="Eliminar"
+					disabled="true" />
+				<toolbarbutton label="Asiento" id="tlbtnAsiento"
+					tooltiptext="Asiento" />
+			</toolbar>
+			<hbox>
+				<vbox>
+					Descripcion:
+					<textbox id="txtDescripcion" constraint="no empty"
+						placeholder="Descripción" disabled="true" />
+				</vbox>
+				<vbox>
+					Cuenta:
+					<bandbox id="bndbCuenta" disabled="true">
+						<bandpopup height="250px" width="300px">
+							<vbox>
+								Nombre de la Cuenta:
+								<textbox id="txtBuscaCuenta" />
+								<listbox id="lstListaCuentas">
+									<listhead>
+										<listheader label="Cuenta"
+											sort="auto" />
+										<listheader label="Nombre"
+											sort="auto" />
+									</listhead>
+									<template name="model">
+										<listitem>
+											<listcell
+												label="${each.cuenta }" />
+											<listcell
+												label="${each.nombre }" />
+										</listitem>
+									</template>
+								</listbox>
+							</vbox>
+						</bandpopup>
+					</bandbox>
+
+				</vbox>
+				<vbox>
+					Saldo C$:
+					<decimalbox id="dcmbSaldo" constraint="no empty"
+						placeholder="0.00" value="0" disabled="true" />
+				</vbox>
+			</hbox>
+			<hbox>
+				<button label="Ventas" id="btnVentas" />
+				<button label="Pagos" id="btnPagos" />
+				<button label="Abonos/Creditos" id="btnAbonos" />
+				<button label="Otro" id="btnOtro" />
+			</hbox>
+			<listbox id="lstListaCajas" hflex="1">
+				<listhead>
+					<listheader label="Descripcion" sort="auto" />
+					<listheader label="Cuenta" sort="auto" />
+				</listhead>
+				<template name="model">
+					<listitem>
+						<listcell label="${each.descripcion }" />
+						<listcell label="${each.cuenta.cuenta }" />
+					</listitem>
+				</template>
+			</listbox>
+		</vlayout>
+	</window>
+</zk>

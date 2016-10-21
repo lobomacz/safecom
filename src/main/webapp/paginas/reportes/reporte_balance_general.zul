@@ -1,0 +1,31 @@
+<?link href="/extilo.css" rel="stylesheet" type="text/css" ?>
+<window border="normal" hflex="1" vflex="1" apply="com.ecom.safecom.controllers.ReporteBalanceGeneralController">
+<caption label="Reporte del Balance General" sclass="fn-caption"/>
+<vbox vflex="1" hflex="1" style="overflow:auto;">
+<hbox>Seleccione el período:<listbox id="lstPeriodos" mold="select">
+	<listhead>
+		<listheader label="Id" sort="auto" />
+		<listheader label="Inicio" sort="auto" />
+		<listheader label="Final" sort="auto" />
+	</listhead>
+	<template name="model">
+	<listitem>
+		<listcell label="${each.id }" />
+		<listcell label="${each.fecha_inicio }" />
+		<listcell label="${each.fecha_final }" />
+	</listitem>
+	</template>
+</listbox>
+</hbox>
+<hbox>Seleccione el formato del reporte:
+<combobox id="cmbFormato" placeholder="Seleccionar" readonly="true">
+<comboitem label="HTML" value="html"/>
+<comboitem label="PDF" value="pdf"/>
+<comboitem label="Excel" value="xls"/>
+<comboitem label="CSV" value="csv"/>
+</combobox>
+<button label="Ver Reporte" onClick="" id="btnVerReporte"/>
+</hbox>
+<jasperreport id="jrpReporte" width="400px"/>
+</vbox>
+</window>

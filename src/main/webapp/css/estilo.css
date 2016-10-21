@@ -1,0 +1,73 @@
+.encabezado {
+	background-color: #102D35; /*#FC9D03;/*#102D35*/
+	color: #FC9D03; /*#38D019;*/
+}
+
+.encabezado-titulo {
+	font-size: 2em;
+	margin-left: 10px;
+	font-weight: bold;
+	font-family: verdana, arial, sans-serif;
+}
+
+.label_enlace{
+	cursor: default;
+}
+
+.label_enlace:HOVER{
+	background-color:#EC2124;
+	color:black;
+}
+
+.barra-menu {
+	background-color: #72DD25;
+}
+
+.fn-caption {
+	font-weight: bold;
+	font-size: 1.5em;
+	font-family: arial, sans-serif;
+}
+
+.campo-valor{
+	text-align: right;
+	font-weight: bold;
+	font-size: 1.5em;
+	font-family: arial, sans-serif;
+}
+
+.campo-dato {
+	font: 1em/1.5em verdana, arial, sans-serif;
+	color: #fff;
+	font-weght: bold;
+	margin: 8px;
+}
+
+.contenedor-campos {
+	padding: 8px;
+	margin-left: 10px
+	border: 1px solid black;
+}
+
+.bloque-campos {
+	border: 1px solid black;
+	background-color:#102D35;
+	padding: 8px;
+}
+
+.piedepagina {
+	background-color: #102D35;
+	color: #FC9D03;
+}
+
+.funcion-menu > span {
+	pointer: default;
+}
+
+.panel {
+	margin: 10px;
+}
+
+.entregado {
+	background-color: #80ED81;
+}

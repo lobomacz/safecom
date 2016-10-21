@@ -1,0 +1,135 @@
+<?link href="/extilo.css" rel="stylesheet" type="text/css" ?>
+<window title="Contabilidad" border="normal"
+	apply="com.ecom.safecom.controllers.ContaCuentasController"
+	id="wContaCuentas" hflex="1" vflex="1">
+	<caption label="Catálogo de Cuentas" sclass="fn-caption" src="imgs/48/conta-cuentas.png" />
+	<borderlayout hflex="1" vflex="1">
+		<north>
+			<toolbar id="tlbHerramientas" vflex="min">
+				<toolbarbutton label="" id="tlbtnImprimir"
+					image="imgs/16/gtk-print.png" tooltiptext="Imprimir"
+					disabled="true" />
+				<toolbarbutton label="" id="tlbtnRecargar"
+					image="imgs/16/reload.png" tooltiptext="Recargar" />
+				<toolbarbutton label="" id="tlbtnGuardar"
+					image="imgs/16/gtk-save.png" tooltiptext="Guardar" disabled="true" />
+				<toolbarbutton label="" id="tlbtnEditar"
+					image="imgs/16/gtk-edit.png" tooltiptext="Editar" disabled="true" />
+				<toolbarbutton label="" id="tlbtnAgregar"
+					image="imgs/16/add.png" tooltiptext="Nuevo" />
+				<toolbarbutton label="" id="tlbtnEliminar"
+					image="imgs/16/gtk-remove.png" tooltiptext="Eliminar"
+					disabled="true" />
+			</toolbar>
+		</north>
+		<west collapsible="true" splittable="true" open="false"
+			style="padding:20px;">
+			<vbox hflex="1">
+				<label value="Detalle de Cuenta" sclass="fn-caption" />
+				<hbox>
+					<vbox hflex="1">
+						<label value="Número de Cuenta:" />
+						<textbox id="txtCuenta" constraint="no empty"
+							maxlength="15" disabled="true" placeholder="Número de Cuenta" />
+					</vbox>
+					<vbox>
+						<label value="Nombre de la Cuenta:" />
+						<textbox constraint="no empty" maxlength="45"
+							id="txtNombreCuenta" placeholder="Nombre de la Cuenta"
+							disabled="true" />
+					</vbox>
+				</hbox>
+				<hbox>
+					<vbox>
+						<label value="Descripción:" />
+						<textbox id="txtDescripcionCuenta"
+							multiline="true" placeholder="Descripción" maxlength="100"
+							rows="5" cols="20" disabled="true" />
+					</vbox>
+					<vbox>
+						<label value="Tipo de Cuenta:" />
+						<combobox id="cmbTipoCuenta"
+							constraint="no empty" placeholder="Seleccionar"
+							disabled="true">
+							<comboitem label="Activo" value="activo" />
+							<comboitem label="Pasivo" value="pasivo" />
+							<comboitem label="Capital" value="capital" />
+							<comboitem label="Ingresos"
+								value="ingresos" />
+							<comboitem label="Costos" value="costos" />
+							<comboitem label="Gastos" value="gastos" />
+							<comboitem label="Contingente"
+								value="contingente" />
+							<comboitem label="Recordatorio"
+								value="recordatorio" />
+							<comboitem label="Fiscal" value="fiscal" />
+						</combobox>
+					</vbox>
+				</hbox>
+				<hbox>
+					<vbox>
+						<label value="Cuenta Padre:" />
+						<textbox id="txtCuentaPadre"
+							constraint="no empty" disabled="true" placeholder="Cuenta Padre" />
+					</vbox>
+					<vbox>
+						<label value="Nivel de Agrupación:" />
+						<radiogroup id="grpGrupo">
+							<radio label="Encabezado" value="E"
+								disabled="true" />
+							<radio label="Cuenta" value="C"
+								disabled="true" />
+							<radio label="Sub-cuenta" value="S"
+								disabled="true" />
+							<radio label="Detalle" value="D"
+								disabled="true" />
+						</radiogroup>
+					</vbox>
+				</hbox>
+				<hbox>
+					<checkbox label="Cuenta de Resumen:"
+						id="chkCuentaResumen" disabled="true" />
+					<checkbox label="Activa:" id="chkCuentaActiva"
+						disabled="true" checked="true" />
+				</hbox>
+				<separator height="4px" width="80%" bar="true"
+					orient="horizontal" />
+				<hbox>
+					<label value="Cargar Archivo Excel" />
+					<fileupload src="imgs/32/excel.png"
+						id="fuplCatalogo" />
+					<label value="" id="lblNombreArchivo" />
+				</hbox>
+			</vbox>
+		</west>
+		<center>
+			<listbox id="lstCatalogoCuentas" hflex="1" vflex="1"
+				mold="paging">
+				<listhead>
+					<listheader label="Cuenta" width="150px"
+						sort="auto" />
+					<listheader label="Nombre" width="200px"
+						sort="auto" />
+					<listheader label="Descripcion" width="250px" />
+					<listheader label="Tipo" width="100px" />
+					<listheader label="Cuenta Padre" width="150px" />
+					<listheader label="Resumen" width="80px" />
+					<listheader label="Nivel" width="80px" />
+					<listheader label="Activa" width="80px" />
+				</listhead>
+				<template name="model">
+					<listitem>
+						<listcell label="${each.cuenta }" />
+						<listcell label="${each.nombre }" />
+						<listcell label="${each.descripcion }" />
+						<listcell label="${each.tipo }" />
+						<listcell label="${each.cuenta_padre }" />
+						<listcell label="${each.cuenta_resumen }" />
+						<listcell label="${each.grupo }" />
+						<listcell label="${each.activa }" />
+					</listitem>
+				</template>
+			</listbox>
+		</center>
+	</borderlayout>
+</window>

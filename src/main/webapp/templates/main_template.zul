@@ -1,0 +1,23 @@
+<zk>
+	<borderlayout hflex="1" vflex="1"
+		if="${not (sessionScope.userCredential==null)}">
+		<north border="none" height="100px">
+			<include src="/includes/encabezado.zul" />
+		</north>
+		<west width="218px" collapsible="true" splittable="true" minsize="300"
+			border="none" style="overflow:auto;">
+			<include src="/includes/menufunciones.zul" />
+		</west>
+		<center border="none" id="maininsert" autoscroll="true"
+			self="@insert(contenido)">
+		</center>
+		<south height="50px">
+			<include src="/includes/piedepagina.zul" />
+		</south>
+	</borderlayout>
+	<div if="${(sessionScope.userCredential==null)}">
+		<a href="login.zul">
+			Ingresar al sistema...
+		</a>
+	</div>
+</zk>

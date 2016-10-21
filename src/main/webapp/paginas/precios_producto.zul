@@ -1,0 +1,85 @@
+<window title="Precios del Producto" border="normal"
+	id="mainPrecioProducto" height="500px" width="600px"
+	style="overflow:auto;"
+	apply="com.ecom.safecom.controllers.PreciosProductoController">
+	<caption src="imgs/96/image-x-generic.png" label="Producto"
+		sclass="fn-caption" id="captProducto" />
+	<toolbar orient="horizontal" id="preciostools">
+		<toolbarbutton label="" id="agregaPrecio"
+			image="imgs/16/list-add.png" />
+		<toolbarbutton label="" id="borraPrecio"
+			image="imgs/16/gtk-cancel.png" disabled="true"/>
+		<toolbarbutton label="" id="guardaPrecio"
+			image="imgs/16/media-floppy.png" disabled="true"/>
+	</toolbar>
+	<borderlayout>
+		<north title="Datos de Precios" splittable="true"
+			collapsible="true">
+			<grid hflex="1" vflex="1">
+				<columns>
+					<column label="" />
+					<column label="" />
+				</columns>
+				<rows>
+				<row>
+				<cell hflex="1">No.Precio:</cell>
+				<intbox id="numeroPrecio" width="100px" disabled="true"/>
+				</row>
+					<row>
+						<cell hflex="1">Tipo de Precio:</cell>
+						<combobox id="cmbTipoPrecio" placeholder="Seleccionar" constraint="no empty">
+							<comboitem label="Precio Base" value="base" />
+							<comboitem label="Precio de Menudeo"
+								value="menudeo" />
+							<comboitem label="Precio Promocional"
+								value="promo" />
+							<comboitem label="Precio Preferencial"
+								value="preferencial" />
+							<comboitem label="Precio de Combo"
+								value="combo" />
+							<comboitem label="Otro" value="otro" />
+						</combobox>
+					</row>
+					<row>
+						<cell hflex="1">Unidad de Medida</cell>
+						<combobox id="cmbUnidadMedidaPrecio" placeholder="Seleccionar">
+							<template name="model">
+								<comboitem
+									label="${each.descripcion_corta }"
+									value="${each.id_unidad_medida }" />
+							</template>
+						</combobox>
+					</row>
+					<row>
+						<cell hflex="1">Precio C$:</cell>
+						<decimalbox id="dcmPrecioProducto"
+							width="100px" placeholder="0,000.00" constraint="no negative:el valor no puede ser negativo" format="##,##0.##" locale="en"/>
+					</row>
+				</rows>
+			</grid>
+		</north>
+		<center title="Lista de Precios" style="overflow:auto;">
+			<listbox id="lstPreciosProducto" hflex="1">
+				<listhead>
+					<listheader label="No. Precio" sort="auto"
+						hflex="1" />
+					<listheader label="Tipo de Precio" sort="auto"
+						hflex="2" />
+					<listheader label="U/M" hflex="1" />
+					<listheader label="Precio C$" sort="auto" hflex="2" />
+				</listhead>
+				<template name="model">
+					<listitem>
+						<listcell
+							label="${each.precioPK.numero_precio }" />
+						<listcell
+							label="${each.tipo_precio.toUpperCase()}" />
+						<listcell
+							label="${each.unidad.descripcion_corta }" />
+						<listcell label="${each.precio }" />
+					</listitem>
+				</template>
+			</listbox>
+		</center>
+	</borderlayout>
+</window>

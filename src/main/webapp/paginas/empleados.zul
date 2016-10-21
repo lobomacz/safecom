@@ -1,0 +1,178 @@
+<?link rel="stylesheet" type="text/css" href="/estilo.css"?>
+<window border="normal" id="mainempleados" hflex="1" vflex="1"
+	apply="com.ecom.safecom.controllers.EmpleadosController" contentStyle="overflow:auto">
+	<caption src="imgs/48/empleados.png" label="Registro de Empleados"
+		height="48px" sclass="fn-caption" />
+	<borderlayout>
+		<center autoscroll="true" border="none">
+			<vlayout hflex="1" vflex="1">
+				<toolbar align="end" orient="horizontal">
+					<textbox id="campobuscar" width="100px" placeholder="Buscar" />
+					<toolbarbutton label="" id="buscar" image="imgs/16/edit-find.png"
+						tooltiptext="buscar empleado" />
+					<separator orient="vertical" bar="true" />
+					<toolbarbutton label="" id="guardar" image="imgs/16/media-floppy.png"
+						tooltiptext="guardar" />
+					<separator orient="vertical" bar="true" />
+					<toolbarbutton label="" id="addempleado" tooltiptext="nuevo empleado"
+						image="imgs/16/list-add.png" />
+					<toolbarbutton label="" id="remempleado" image="imgs/16/gtk-cancel.png"
+						tooltiptext="eliminar empleado" />
+					<separator orient="vertical" bar="true" />
+					<toolbarbutton label="" id="veruser" image="imgs/16/usuario.png"
+						tooltiptext="ver usuario" hoverImage="imgs/16/usuario_hover.png" />
+					<toolbarbutton label="" id="adduser" tooltiptext="asignar usuario"
+						image="imgs/16/addusuario.png" hoverImage="imgs/16/addusuario_hover.png" />
+					<toolbarbutton label="" id="remuser" image="imgs/16/deluser.png"
+						tooltiptext="remover usuario" hoverImage="imgs/16/deluser_hover.png" />
+				</toolbar>
+				<listbox height="300px" style="overflow:auto;">
+					<listhead>
+						<listheader />
+						<listheader />
+						<listheader />
+					</listhead>
+					<template name="model">
+						<listitem value="${each}">
+							<listcell>
+								<label value="${each.id_empleado}" />
+							</listcell>
+							<listcell>
+								<label value="${each.nombre}" />
+							</listcell>
+							<listcell>
+								<label value="${each.apellido}" />
+							</listcell>
+							<listcell>
+								<label value="${each.direccion}" maxlength="50" />
+							</listcell>
+						</listitem>
+					</template>
+				</listbox>
+			</vlayout>
+		</center>
+		<east id="bloqueDatosEmpleado" width="500px" border="none"
+			visible="true" autoscroll="true" collapsible="false" splittable="true"
+			minsize="300">
+			<vlayout vflex="1" hflex="1">
+				<grid>
+					<columns>
+						<column />
+						<column />
+					</columns>
+					<rows>
+						<row>
+							<cell rowspan="2">
+								<vbox>
+									<image src="imgs/persona.png" id="foto" height="126px"
+										width="96px" />
+									<fileupload label="Foto" id="fotourl" width="96px" />
+								</vbox>
+							</cell>
+							<cell>
+								<vbox>
+									<label value="Nombres:" />
+									<textbox id="nombres" constraint="no empty" maxlength="45"
+										multiline="false" placeholder="Nombres" width="200px" />
+								</vbox>
+							</cell>
+						</row>
+						<row>
+							<cell>
+								<vbox>
+									<label value="Apellidos:" />
+									<textbox id="apellidos" constraint="no empty"
+										maxlength="45" multiline="false" placeholder="Apellidos"
+										width="200px" />
+								</vbox>
+							</cell>
+						</row>
+						<row>
+							<cell>
+								<vbox>
+									<label value="Fecha Nac." />
+									<datebox id="fechanacimiento" constraint="no future"
+										buttonVisible="true" placeholder="Fecha de Nacimiento" />
+								</vbox>
+							</cell>
+							<cell>
+								<vbox>
+									<label value="Sexo:" />
+									<radiogroup orient="horizontal" id="sexo">
+										<radio label="masculino" value="m" />
+										<radio label="femenino" value="f" />
+									</radiogroup>
+								</vbox>
+							</cell>
+						</row>
+						<row>
+							<cell>
+								<vbox>
+									<label value="Dirección:" />
+									<textbox id="direccion" cols="25" rows="4" placeholder="Dirección"
+										maxlength="200" multiline="true" />
+								</vbox>
+							</cell>
+							<cell>
+								<vbox>
+									<label value="Teléfonos:" />
+									<grid id="telefonos">
+										<columns>
+											<column label="telefono" />
+											<column label="tipo" />
+										</columns>
+										<rows>
+											<row>
+												<textbox placeholder="8888-8888" maxlength="9" />
+												<textbox placeholder="Casa" maxlength="5" />
+											</row>
+											<row>
+												<textbox placeholder="8888-8888" maxlength="9" />
+												<textbox placeholder="Movil" maxlength="5" />
+											</row>
+											<row>
+												<textbox placeholder="8888-8888" maxlength="9" />
+												<textbox placeholder="Otro" maxlength="5" />
+											</row>
+										</rows>
+									</grid>
+								</vbox>
+							</cell>
+						</row>
+						<row>
+							<cell>
+								<vbox>
+									<label value="Fecha de Ingreso:" />
+									<datebox id="fechaentrada" constraint="no future"
+										placeholder="Fecha de Ingreso" />
+								</vbox>
+							</cell>
+							<cell>
+								<vbox>
+									<label value="Salario:" />
+									<decimalbox id="salario" placeholder="C$ 0000.00"
+										constraint="no zero" />
+								</vbox>
+							</cell>
+						</row>
+						<row>
+							<cell>
+								<vbox>
+									<label value="No. INSS:" />
+									<textbox id="inss" width="100px" maxlength="9"
+										placeholder="0000000-0" />
+								</vbox>
+							</cell>
+							<cell>
+								<vbox>
+									<label value="Activo:" />
+									<checkbox checked="true" />
+								</vbox>
+							</cell>
+						</row>
+					</rows>
+				</grid>
+			</vlayout>
+		</east>
+	</borderlayout>
+</window>

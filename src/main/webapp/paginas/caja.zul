@@ -1,0 +1,162 @@
+<?link href="/estilo.css" type="text/css" rel="stylesheet"?>
+<zk>
+	<window border="normal" id="wCaja" hflex="1" vflex="1"
+		apply="com.ecom.safecom.controllers.CajaController">
+		<caption src="imgs/48/caja.png"
+			label="Control de Caja (Facturación)" height="48px"
+			sclass="fn-caption" />
+					<borderlayout hflex="1" vflex="1"
+						style="overflow:auto;">
+						<center autoscroll="true"
+							style="overflow:auto;">
+							<vbox vflex="1">
+							<hbox>
+							<button label="Actualizar Lista" id="btnActualizar"/>
+							<button label="Cerrar Caja" id="btnCerrar"/>
+							</hbox>
+								<listbox hflex="1" vflex="1"
+									mold="paging" autopaging="true" maxlength="10"
+									pagingPosition="bottom" id="lstVentas">
+									<listhead>
+										<listheader label="Cliente"
+											sort="auto" width="100px" />
+										<listheader label="Vendedor"
+											sort="auto" width="100px" />
+										<listheader label="Monto C$"
+											width="4em" />
+									</listhead>
+									<template name="model">
+										<listitem>
+											<listcell
+												label="${each.cliente.nombre }" />
+											<listcell
+												label="${each.empleado.toString() }" />
+											<listcell
+												label="${each.total }" />
+										</listitem>
+									</template>
+								</listbox>
+							</vbox>
+
+						</center>
+						<east collapsible="true" splittable="true"
+							size="600px" autoscroll="true">
+							<vbox hflex="1" vflex="1"
+								sclass="contenedor-campos">
+								<vbox hflex="1"
+									sclass="bloque-campos">
+									<hbox align="start"
+										spacing="20px">
+										<label sclass="campo-dato"
+											value="No. Venta:" />
+										<label value="1111"
+											id="lblIdVenta" sclass="campo-dato" />
+									</hbox>
+									<hbox>
+										<label sclass="campo-dato"
+											value="Vendedor:" />
+										<textbox value="Juan Pérez"
+											id="txtNombreVendedor" readonly="true" />
+									</hbox>
+									<hbox>
+										<label value="Cliente:"
+											sclass="campo-dato" />
+										<textbox value="Juana Julia"
+											id="txtNombreCliente" readonly="true" />
+									</hbox>
+								</vbox>
+								<hbox sclass="bloque-campos" hflex="1" pack="center">
+								<vbox hflex="1" align="center"
+									pack="center">
+									<label value="Forma de Pago"
+										sclass="campo-dato" />
+									<radiogroup name="rgrpFormaPago"
+										id="rgrpFormaPago">
+										<radio label="Efectivo"
+											value="efectivo" style="margin:10px;" sclass="campo-dato" disabled="true"/>
+										<radio value="cheque"
+											style="margin:10px;" label="Cheque" sclass="campo-dato" disabled="true"/>
+										<radio label="Tarjeta"
+											style="margin:10px;" value="tarjeta" sclass="campo-dato" disabled="true"/>
+									</radiogroup>
+								</vbox>
+								<vbox> 
+								<label value="No. Chk/Voucher" />
+								<textbox id="txtComprobante" disabled="true"/>
+								</vbox>
+								</hbox>
+								
+								<hbox hflex="1" pack="center"
+									align="center" sclass="bloque-campos">
+									<vbox style="margin-left:20px;">
+										<label value="Sub-Total"
+											sclass="campo-dato" />
+										<decimalbox value="0.00"
+											id="dcmbSubTotal" readonly="true" width="90px" />
+									</vbox>
+									<vbox style="margin-left:20px;">
+										<label value="I.V.A."
+											sclass="campo-dato" />
+										<decimalbox value="0.00"
+											id="dcmbIva" readonly="true" width="90px" />
+									</vbox>
+									<vbox style="margin-left:20px;">
+										<label value="Total C$"
+											sclass="campo-dato" />
+										<decimalbox value="0.00"
+											id="dcmbTotal" readonly="true" width="90px" />
+									</vbox>
+								</hbox>
+								<hbox hflex="1" sclass="bloque-campos"
+									align="center" pack="center">
+									<!-- <vbox style="margin-left:20px;">
+										<label value="Monto Chk/Voucher"
+											sclass="campo-dato" />
+										<decimalbox id="dcmbMontoDocumento"
+											width="90px" value="0.00" disabled="true"/>
+									</vbox> -->
+									<vbox style="margin-left:20px;">
+										<label value="Efectivo Recibido"
+											sclass="campo-dato" />
+										<decimalbox id="dcmbRecibido"
+											width="90px" value="0.00" disabled="true"/>
+									</vbox>
+									<vbox style="margin-left:20px;">
+										<label value="Cambio"
+											sclass="campo-dato" />
+										<decimalbox id="dcmbCambio"
+											width="90px" readonly="true" value="0.00" disabled="true"/>
+									</vbox>
+								</hbox>
+								<hbox hflex="1" pack="center"
+									align="center" sclass="bloque-campos">
+									<vbox sclass="bloque-campos">
+										<label value="Tipo de Venta"
+											sclass="campo-dato" />
+										<radiogroup id="rgrpTipoVenta"
+											name="tipoventa">
+											<radio value="contado"
+												label="Contado" sclass="campo-dato" id="radContado"/>
+											<radio value="credito"
+												label="Crédito" sclass="campo-dato" id="radCredito"/>
+										</radiogroup>
+									</vbox>
+									<vbox sclass="bloque-campos">
+										<checkbox id="chkFactura"
+											label="Factura" sclass="campo-dato" />
+										<checkbox id="chkExonerado" sclass="campo-dato" label="Exonerado"/>
+										<textbox id="txtNumeroFactura"
+											width="100px" disabled="true" />
+									</vbox>
+									<vbox sclass="bloque-campos">
+										<button label="Asiento" onClick="" image="/imgs/16/grey/document-properties.png" id="btnAsiento"/>
+										<button label="Guardar"	id="btnGuardar" image="imgs/16/media-floppy.png" disabled="true" />
+										<button label="Imprimir"
+											image="imgs/16/grey/document-print.png" disabled="true" id="btnImprimir"/>
+									</vbox>
+								</hbox>
+							</vbox>
+						</east>
+					</borderlayout>
+	</window>
+</zk>

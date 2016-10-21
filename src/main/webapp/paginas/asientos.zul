@@ -1,0 +1,89 @@
+<window title="Contabilidad" border="normal" id="wAsientoContable"
+	closable="true" position="center" width="800px"
+	apply="com.ecom.safecom.controllers.AsientoController">
+	<caption label="Asientos Contables" sclass="fn-caption"
+		src="imgs/48/xfce-edit.png" />
+	<vbox hflex="1" style="overflow:auto;">
+		<hbox>
+			<vbox>
+				<label value="Fecha:" />
+				<datebox id="dtbFecha" constraint="no future,no empty" />
+			</vbox>
+			<vbox>
+				<label value="Descripcion:" />
+				<textbox id="txtDescripcion" placeholder="Descripcion"
+					maxlength="45" width="150" constraint="no empty" />
+			</vbox>
+			<vbox>
+				<label value="Referencia:" />
+				<textbox id="txtReferencia" placeholder="Referencia"
+					maxlength="15" constraint="no empty" />
+			</vbox>
+			<checkbox id="chkContabilizado" label="Contabilizado" />
+		</hbox>
+		<hbox>
+			<vbox sclass="contenedor-campos" width="150px">
+				<label value="Débito" sclass="campo-dato" />
+				<label value="0" id="lblDebitos" sclass="campo-valor" />
+			</vbox>
+			<vbox sclass="contenedor-campos" width="150px">
+				<label value="Crédito" sclass="campo-dato" />
+				<label value="0" id="lblCreditos" sclass="campo-valor" />
+			</vbox>
+		</hbox>
+		<grid id="grdDetalleAsiento">
+			<columns>
+				<column label="Cuenta" width="210px" />
+				<column label="Descripción" width="210px" />
+				<column label="db/cr" width="60px" />
+				<column label="Monto C$" width="110px" />
+				<column label="" />
+			</columns>
+			<rows>
+				<row>
+					<combobox width="200px" id="cmbCuenta" disabled="true">
+						<template name="model">
+							<comboitem label="${each.cuenta }"
+								description="${each.nombre}" />
+						</template>
+					</combobox>
+					<textbox width="200px" id="txtDescripcionDetalle" disabled="true"/>
+					<combobox width="50px" id="cmbTipoMovimiento" disabled="true">
+						<comboitem label="db" value="db" />
+						<comboitem label="cr" value="cr" />
+					</combobox>
+					<decimalbox width="100px" id="dcmbMonto" locale="en"
+						format="#,000.00" disabled="true"/>
+					<hbox>
+						<button image="imgs/16/gtk-remove.png"
+							id="btnEliminarDetalle" disabled="true" />
+						<button image="imgs/16/add.png"
+							id="btnAgregarDetalle" />
+						<button image="imgs/16/gtk-save.png"
+							id="btnGuardarDetalle" />
+					</hbox>
+				</row>
+			</rows>
+		</grid>
+		<listbox id="lstDetalleAsiento">
+			<listhead>
+				<listheader label="Cuenta" />
+				<listheader label="Descripcion" />
+				<listheader label="cr/db" />
+				<listheader label="Monto C$" />
+			</listhead>
+			<template name="model">
+				<listitem>
+					<listcell label="${each.iddetalle.cuenta }" />
+					<listcell label="${each.descripcion }" />
+					<listcell label="${each.tipo_movimiento }" />
+					<listcell label="${each.monto }" />
+				</listitem>
+			</template>
+		</listbox>
+		<hbox hflex="1">
+			<button label="Cancelar" onClick="" id="btnCancelar" />
+			<button label="Guardar" onClick="" id="btnGuardar" />
+		</hbox>
+	</vbox>
+</window>

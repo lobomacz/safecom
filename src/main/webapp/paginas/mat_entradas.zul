@@ -1,0 +1,133 @@
+<?link href="/extilo.css" rel="stylesheet" type="text/css" ?>
+<zk>
+	<window title="Materiales" border="normal"
+		apply="com.ecom.safecom.controllers.EntradaMaterialesController"
+		id="wEntradaMateriales">
+		<caption label="Entrada de Materiales" sclass="fn-caption" />
+		<vlayout style="overflow:auto;">
+			<toolbar id="tlbHerramientas">
+				<toolbarbutton label="" id="tlbtnImprimir"
+					image="imgs/16/gtk-print.png" tooltiptext="Imprimir"
+					disabled="true" />
+				<toolbarbutton label="" id="tlbtnRecargar"
+					image="imgs/16/reload.png" tooltiptext="Recargar" />
+				<toolbarbutton label="" id="tlbtnGuardar"
+					image="imgs/16/gtk-save.png" tooltiptext="Guardar" disabled="true" />
+				<toolbarbutton label="" id="tlbtnEditar"
+					image="imgs/16/gtk-edit.png" tooltiptext="Editar" disabled="true" />
+				<toolbarbutton label="" id="tlbtnNuevo"
+					image="imgs/16/add.png" tooltiptext="Nuevo" />
+				<toolbarbutton label="" id="tlbtnEliminar"
+					image="imgs/16/gtk-remove.png" tooltiptext="Eliminar"
+					disabled="true" />
+			</toolbar>
+			<hbox>
+				<vbox>
+					<label value="Fecha" />
+					<datebox id="dtbFechaEntrada"
+						constraint="no empty,no future" />
+					<label value="Almacen" />
+					<label id="lblAlmacen" style="font-weight:bold;" />
+					<label value="Referencia" />
+					<textbox id="txtReferencia" maxlength="15"
+						placeholder="Referencia" constraint="no empty" />
+				</vbox>
+				<vbox>
+					<label value="Observaciones" />
+					<textbox id="txtObservaciones" maxlength="200"
+						multiline="true" placeholder="Observaciones" rows="4" cols="50" />
+					<hbox>
+						<checkbox label="Recibido" id="chkRecibido"
+							disabled="true" />
+						<datebox id="dtbFechaRecibido" disabled="true"
+							constraint="no empty, no future" />
+					</hbox>
+					<button label="Asiento" onClick="" id="btnAsiento" />
+				</vbox>
+			</hbox>
+			<grid id="grdDetalleEntrada">
+				<columns>
+					<column label="Código de Producto" hflex="2" />
+					<column label="U/M" hflex="2" />
+					<column label="Cantidad" hflex="1" />
+					<column label="Costo Unit. C$" hflex="1" />
+					<column label="Costo Total C$" hflex="1" />
+					<column label="Recibido" hflex="1" />
+					<column label="" hflex="2" />
+				</columns>
+				<rows>
+					<row>
+						<bandbox id="bndbCodigoProducto" disabled="true">
+							<bandpopup height="250px" width="350px" style="overflow:auto">
+								<vbox>
+									<label value="Descripción:" />
+									<textbox
+										id="txtDescripcionProducto" />
+									<listbox id="lstCodigosProducto">
+										<listhead>
+											<listheader label="Código"
+												sort="auto" />
+											<listheader label="Descripción"
+												sort="auto" />
+										</listhead>
+										<template name="model">
+										<listitem>
+											<listcell label="${each.codigo_producto }" />
+											<listcell label="${each.descripcion }" />
+										</listitem>
+										</template>
+									</listbox>
+								</vbox>
+							</bandpopup>
+						</bandbox>
+						<combobox autocomplete="true" autodrop="true"
+							id="cmbUnidadMedida" constraint="no empty" disabled="true">
+							<template name="model">
+								<comboitem
+									label="${each.descripcion_corta }" />
+							</template>
+						</combobox>
+						<decimalbox constraint="no empty,no negative"
+							locale="en" id="dcmbCantidad" value="0" disabled="true" />
+						<decimalbox constraint="no empty,no negative"
+							locale="en" id="dcmbCostoUnitario" value="0" disabled="true" />
+						<decimalbox locale="en" id="dcmbCostoTotal"
+							value="0" disabled="true" />
+						<checkbox id="chkRecibirDetalle"
+							disabled="true" />
+						<hbox>
+							<button image="imgs/16/gtk-remove.png"
+								id="btnEliminarDetalle" />
+							<button image="imgs/16/add.png"
+								id="btnAgregarDetalle" />
+							<button image="imgs/16/gtk-save.png"
+								id="btnGuardarDetalle" />
+						</hbox>
+					</row>
+				</rows>
+			</grid>
+			<listbox id="lstDetalleEntrada">
+				<listhead>
+					<listheader label="Cód. Producto" />
+					<listheader label="Unidad Med." />
+					<listheader label="Cant." />
+					<listheader label="Precio Unit." />
+					<listheader label="Precio Total" />
+					<listheader label="Recibido" />
+				</listhead>
+				<template name="model">
+					<listitem>
+						<listcell label="${each.id.codigo_producto }" />
+						<listcell
+							label="${each.unidad.descripcion_corta }" />
+						<listcell label="${each.cantidad }" />
+						<listcell label="${each.costo_unitario }" />
+						<listcell label="${each.costo_total }"
+							style="font-weight:bold;" />
+						<listcell label="${each.recibido }" />
+					</listitem>
+				</template>
+			</listbox>
+		</vlayout>
+	</window>
+</zk>

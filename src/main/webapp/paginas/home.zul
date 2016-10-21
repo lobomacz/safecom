@@ -1,0 +1,5 @@
+<zk>
+	<vbox pack="center" align="center" hflex="1" spacing="50px" vflex="1">
+		<image src="imgs/logo_original.png" />
+	</vbox>
+</zk>

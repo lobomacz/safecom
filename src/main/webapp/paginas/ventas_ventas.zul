@@ -1,0 +1,41 @@
+<?link href="/estilo.css" type="text/css" rel="stylesheet" ?>
+<window border="normal" id="mainventas" hflex="1" vflex="1"
+	style="overflow:auto;"
+	apply="com.ecom.safecom.controllers.VentasController">
+	<caption src="imgs/48/ventas.png" label="Control de Ventas"
+		height="48px" sclass="fn-caption" />
+	<toolbar id="tlbHerramientas">
+		<toolbarbutton label="" id="tlbtnImprimir"
+			image="imgs/16/gtk-print.png" tooltiptext="Imprimir" disabled="true" />
+		<toolbarbutton label="" id="tlbtnRecargar"
+			image="imgs/16/reload.png" tooltiptext="Recargar" />
+		<toolbarbutton label="" id="tlbtnEditar"
+			image="imgs/16/gtk-edit.png" tooltiptext="Editar" disabled="true" />
+		<toolbarbutton label="" id="tlbtnAgregar"
+			image="imgs/16/add.png" tooltiptext="Nuevo" />
+		<toolbarbutton label="" id="tlbtnEliminar"
+			image="imgs/16/gtk-remove.png" tooltiptext="Eliminar"
+			disabled="true" />
+	</toolbar>
+	<box orient="horizontal">
+		<listbox height="300px" style="overflow:auto;"
+			id="lstListaVentas">
+			<listhead>
+				<listheader label="No. Venta" sort="auto" />
+				<listheader label="No. Factura" sort="auto" />
+				<listheader label="Fecha" sort="auto" />
+				<listheader label="Vendedor" sort="auto" />
+				<listheader label="Monto C$" sort="auto" />
+			</listhead>
+			<template name="model">
+				<listitem>
+					<listcell label="${each.id_venta }" />
+					<listcell label="${each.numero_factura }" />
+					<listcell label="${each.fecha_venta }" />
+					<listcell label="${each.empleado.toString() }" />
+					<listcell label="${each.total }" />
+				</listitem>
+			</template>
+		</listbox>
+	</box>
+</window>

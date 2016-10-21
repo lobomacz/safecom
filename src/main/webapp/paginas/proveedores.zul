@@ -1,0 +1,83 @@
+<?link href="/estilo.css" type="text/css" rel="stylesheet"?>
+<window border="normal" id="mainproveedores" hflex="1" vflex="1"
+	apply="com.ecom.safecom.controllers.ProveedoresController">
+	<caption src="imgs/48/proveedores.png" label="Proveedores"
+		height="48px" sclass="fn-caption" />
+	<tabbox id="tabsproveedores" hflex="1" vflex="1">
+		<tabs>
+			<tab label="Lista" />
+			<tab label="Nuevo/Editar" />
+		</tabs>
+		<tabpanels>
+			<tabpanel style="overflow:auto;">
+				<listbox id="listaproveedores">
+					<listhead>
+						<listheader label="Id" sort="auto" width="4em" />
+						<listheader label="Identificación" sort="auto" width="8em" />
+						<listheader label="Nombre" width="15em" />
+						<listheader label="Dirección" width="15em" />
+						<listheader label="Contacto" width="10em" />
+						<listheader label="Email" width="15em" />
+					</listhead>
+					<listitem>
+						<listcell label="" />
+						<listcell label="" />
+						<listcell label="" />
+						<listcell label="" />
+						<listcell label="" />
+						<listcell label="" />
+					</listitem>
+					<listitem>
+						<listcell label="" />
+						<listcell label="" />
+						<listcell label="" />
+						<listcell label="" />
+						<listcell label="" />
+						<listcell label="" />
+					</listitem>
+					<listitem>
+						<listcell label="" />
+						<listcell label="" />
+						<listcell label="" />
+						<listcell label="" />
+						<listcell label="" />
+						<listcell label="" />
+					</listitem>
+					<listitem>
+						<listcell label="" />
+						<listcell label="" />
+						<listcell label="" />
+						<listcell label="" />
+						<listcell label="" />
+						<listcell label="" />
+					</listitem>
+				</listbox>
+			</tabpanel>
+			<tabpanel>
+				<hbox width="60%">
+					<vbox style="margin:10px;">
+						<label value="Id" />
+						<label value="----" id="idproveedor" />
+						<label value="Identificación" />
+						<textbox id="identificacionproveedor" placeholder="1234-55,234-131255-00001" />
+						<label value="Nombre" />
+						<textbox id="nombreproveedor" placeholder="Materiales Inc." />
+						<label value="Dirección" />
+						<textbox id="direccionproveedor" placeholder="Dirección" />
+					</vbox>
+					<vbox style="margin:10px;">
+						<label value="Contacto" />
+						<textbox id="contactoproveedor" placeholder="Juan Pérez" />
+						<label value="Email" />
+						<textbox id="emailproveedor" placeholder="proveedor@correo.com" />
+						<checkbox label="Activo" id="activoproveedor" />
+						<hbox>
+							<button label="Cancelar" onClick="" id="btnCancelar" />
+							<button label="Guardar" onClick="" id="btnGuardar" />
+						</hbox>
+					</vbox>
+				</hbox>
+			</tabpanel>
+		</tabpanels>
+	</tabbox>
+</window>

@@ -1,0 +1,9 @@
+<window width="80%" title="Session Timeout" border="normal">
+	<vbox>
+		La página o componente solicitado ya no se encuentra disponible.
+		Esto se debe normalmente a tiempo de sesión agotado, 
+		abrir demasiadas páginas, ó reinicio del servidor.
+		
+		<a href="login.zul">Volver al Inicio...</a>
+	</vbox>
+</window>

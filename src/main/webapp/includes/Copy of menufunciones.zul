@@ -1,0 +1,8 @@
+<grid id="fnList" hflex="1" vflex="1" sclass="menulateral"
+	apply="com.ecom.safecom.controllers.PaginaMenuLateralController">
+	<columns>
+		<column width="36px" />
+		<column label="" />
+	</columns>
+	<rows />
+</grid>
